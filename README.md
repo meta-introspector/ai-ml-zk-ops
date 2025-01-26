@@ -4,6 +4,10 @@ operational scripts for ai ml zk
 first
 `bash ./scripts/install/node.sh `
 
+If there is a problem, try -x for debugging
+
+`bash -x ./scripts/install/node.sh `
+
 then
 
 Close and reopen your terminal to start using nvm 
