@@ -1,6 +1,8 @@
 # ai-ml-zk-ops
 operational scripts for ai ml zk 
 
+Run in git bash on windows
+
 first
 `bash ./scripts/install/node.sh `
 
