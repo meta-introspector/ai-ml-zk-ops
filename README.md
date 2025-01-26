@@ -1,3 +1,10 @@
+
+# purpose
+
+This is a work in progress to move scripts from here https://docs.google.com/document/d/1mqPOuE6X4mrRWWdszrtVkqmVs1NW1SHP_R7AqrIcxGA/edit?tab=t.0
+into git, nothing special, just trying to document steps for new people in an easy to use manner
+this will currently only install nvm, pnpm for new users.
+
 # ai-ml-zk-ops
 operational scripts for ai ml zk 
 
