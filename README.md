@@ -39,3 +39,42 @@ if it fails run the commands manually
 nvm use 23
 pnpm install
 ```
+
+
+```
+Usage: ./autoscale.sh <keyword> <desired_capacity>
+Example: ./autoscale.sh my-asg 0
+```
+
+```mdupont@mdupont-G470:~/2025/01/13/ai-ml-zk-ops/scripts$ bash ./autoscale.sh  fsldkjfsd 0```
+
+```
+No Auto Scaling Group found with keyword: fsldkjfsd
+WARNING: terminal is not fully functional
+Press RETURN to continue 
+
+{
+    "AutoScalingGroups": [
+        {
+		
+		    "AutoScalingGroupName": 
+			
+```
+		
+
+`bash ./autoscale.sh  "docker-agent-ami-t4g.small" 0`
+
+```
+Found Auto Scaling Group: docker-agent-ami-t4g.small
+Successfully set desired capacity to 0 for docker-agent-ami-t4g.small
+```
+
+
+`bash ./autoscale.sh  "docker-agent-ami-t4g.small" 1`
+
+```
+Found Auto Scaling Group: docker-agent-ami-t4g.small
+Successfully set desired capacity to 1 for docker-agent-ami-t4g.small
+```
+
+
