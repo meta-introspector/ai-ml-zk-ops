@@ -2,8 +2,8 @@
   description = "Nix flake for 2-gram repository analysis (composed from smaller flakes).";
 
   inputs = {
-    flake-utils-wrapper.url = "./flakes/flake-utils-wrapper";
-    nixpkgs-pinned.url = "./flakes/nixpkgs-pinned";
+    flake-utils-wrapper.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/flake-utils-wrapper&ref=feature/concept-to-nix-8s";
+    nixpkgs-pinned.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/nixpkgs-pinned&ref=feature/concept-to-nix-8s";
     repo-data-flake.url = "./flakes/repo-data-flake";
     repo-packages-flake.url = "./flakes/repo-packages-flake";
     awk-runner-flake.url = "./flakes/awk-runner-flake";

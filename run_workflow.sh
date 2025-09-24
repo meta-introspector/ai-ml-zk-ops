@@ -41,6 +41,7 @@ set -e
 
 # Initialize flags
 DRY_RUN=false
+FORCE_NIX_REBUILD=false # Flag to force Nix rebuild
 COMMITTED_CHANGES=false # Flag to track if a commit actually happened
 
 # Parse arguments
@@ -49,6 +50,10 @@ for arg in "$@"; do
     --dry-run)
       DRY_RUN=true
       shift # Remove --dry-run from processing
+      ;;
+    --force-nix-rebuild)
+      FORCE_NIX_REBUILD=true
+      shift # Remove --force-nix-rebuild from processing
       ;;
     *)
       # Unknown option
@@ -110,11 +115,16 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 # Get the current system
 CURRENT_SYSTEM=$(nix eval --raw --impure --expr 'builtins.currentSystem')
 
+NIX_REBUILD_FLAG=""
+if [ "$FORCE_NIX_REBUILD" = true ]; then
+  NIX_REBUILD_FLAG="--rebuild"
+fi
+
 if [ "$DRY_RUN" = true ]; then
-  echo "  (Dry Run) Would execute: nix build .#checks.${CURRENT_SYSTEM}.runTests"
+  echo "  (Dry Run) Would execute: nix build $NIX_REBUILD_FLAG .#checks.${CURRENT_SYSTEM}.runTests"
 else
-  echo "  Executing: nix build .#checks.${CURRENT_SYSTEM}.runTests"
-  nix build .#checks.${CURRENT_SYSTEM}.runTests
+  echo "  Executing: nix build $NIX_REBUILD_FLAG .#checks.${CURRENT_SYSTEM}.runTests"
+  nix build $NIX_REBUILD_FLAG .#checks.${CURRENT_SYSTEM}.runTests
 fi
 
 if [ "$COMMITTED_CHANGES" = true ]; then
@@ -124,7 +134,10 @@ if [ "$COMMITTED_CHANGES" = true ]; then
     echo "  (Dry Run) Would execute: git push origin "$CURRENT_BRANCH""
   else
     echo "  Executing: git push origin "$CURRENT_BRANCH""
-    git push origin "$CURRENT_BRANCH"
+    if ! git push origin "$CURRENT_BRANCH"; then
+      echo "  Error: Failed to push changes to origin/$CURRENT_BRANCH. Please resolve any conflicts or authentication issues manually."
+      exit 1
+    fi
     echo "  Changes pushed successfully to origin/$CURRENT_BRANCH."
   fi
 else
