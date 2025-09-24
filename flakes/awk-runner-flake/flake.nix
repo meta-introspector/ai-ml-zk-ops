@@ -2,9 +2,9 @@
   description = "A flake for running awk commands on 2-gram data.";
 
   inputs = {
-    nixpkgs-pinned.url = "path:../nixpkgs-pinned";
-    flake-utils-wrapper.url = "path:../flake-utils-wrapper";
-    repo-data-flake.url = "path:../repo-data-flake";
+    nixpkgs-pinned.url = "path:../../flakes/nixpkgs-pinned";
+    flake-utils-wrapper.url = "path:../../flakes/flake-utils-wrapper";
+    repo-data-flake.url = "path:../../flakes/repo-data-flake";
   };
 
   outputs = { nixpkgs-pinned, flake-utils-wrapper, repo-data-flake }:

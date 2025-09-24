@@ -1,7 +1,4 @@
-feat: Add --dry-run option to run_workflow.sh
+fix: Correct relative paths in awk-runner-flake/flake.nix
 
-Introduces a new `--dry-run` argument to `run_workflow.sh`. When this option is provided, the script will:
-- Print the git status before attempting to commit.
-- Log the commands that would be executed for committing changes and running Nix flake tests, without actually performing these actions.
-
-This enhancement allows users to preview the workflow's actions and verify the state of the repository before making any permanent changes.
+Updated the input paths in `awk-runner-flake/flake.nix` from `path:../<flake-name>` to `path:../../flakes/<flake-name>`.
+This resolves the "relative path points outside of its parent's store path" error when building the flake, ensuring correct resolution of sub-flake inputs from the project root.
