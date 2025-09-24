@@ -2,7 +2,7 @@
   description = "A wrapper flake for flake-utils.";
 
   inputs = {
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils.url = "github:meta-introspector/flake-utils";
   };
 
   outputs = { flake-utils, ... }:
