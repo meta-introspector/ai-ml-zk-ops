@@ -1,0 +1,8 @@
+[
+  {"count": 65, "owner": "meta-introspector", "repo": "git-submodule-tools-rs"},
+  {"count": 48, "owner": "meta-introspector", "repo": "git-submodules-rs-nix"},
+  {"count": 43, "owner": "meta-introspector", "repo": "streamofrandom"},
+  {"count": 6, "owner": "meta-introspector", "repo": "lattice-introspector"},
+  {"count": 5, "owner": "meta-introspector", "repo": "solfunmeme"},
+  {"count": Count, "owner": "Owner", "repo": "Repo"}
+]
