@@ -1,4 +1,7 @@
-fix: Update shebang in generate_repo_2gram_csv.sh
+refactor: Integrate data generation into Nix flake and simplify build/test scripts
 
-Changed the shebang in `generate_repo_2gram_csv.sh` from `#!/bin/bash` to `#!/usr/bin/env bash`.
-This addresses the 'bad interpreter' error when the script is executed within the Nix build environment.
+Refactored `flake.nix` to include a new derivation (`packages.repo2gramJson`)
+that generates `2gram.json` within the Nix build system.
+Updated `build.sh` and `test.sh` to remove redundant data generation logic,
+as this is now handled by Nix. This ensures a fully hermetic and reproducible
+data generation and build process within the Nix flake.

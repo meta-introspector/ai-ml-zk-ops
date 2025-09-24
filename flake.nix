@@ -12,13 +12,13 @@
         # Import the Nixpkgs library
         pkgs = nixpkgs.legacyPackages.${system};
 
-      # Path to the generated 2gram.json file
-      # Assuming 2gram.json is in the same directory as flake.nix
-      jsonFile = ./2gram.json;
+      # The generated 2gram.json is now an input to this flake
+      # We pass the output of repo2gramJson as an input
+      repo2gramJson = self.packages.${system}.repo2gramJson;
 
-      # Read and parse the JSON file
+      # Read and parse the JSON file from the derivation output
       # builtins.fromJSON expects a string, so builtins.readFile is used
-      repoData = builtins.fromJSON (builtins.readFile jsonFile);
+      repoData = builtins.fromJSON (builtins.readFile "${repo2gramJson}/2gram.json");
 
       # Function to convert a single repo entry into a Nix attribute set
       # This function takes an object { count, owner, repo }
@@ -51,8 +51,61 @@
       # You can access these via `nix build .#repos.NixOS-nixpkgs` for example
       repos = repoAttrs;
 
+      # New derivation to generate 2gram.json
+      packages.repo2gramJson = pkgs.runCommand "repo-2gram-json" {
+        # Inputs for this derivation
+        src = self; # The entire flake as source
+        filesTxt = "${self}/files.txt";
+        awkScript = "${self}/source/automation/repo_2gram_analysis.awk";
+        generateCsvScript = "${self}/source/automation/generate_repo_2gram_csv.sh";
+        convertJsonScript = "${self}/source/automation/convert_2gram_csv_to_json.sh";
+        
+        # Build inputs (tools needed for the scripts)
+        buildInputs = [ pkgs.gawk pkgs.coreutils pkgs.gnused ]; # gawk for awk, coreutils for sort/head, gnused for sed
+      } ''
+        # Create a temporary directory for outputs
+        mkdir -p $out/
+        
+        # Generate 2gram.csv
+        # The generateCsvScript expects files.txt to be at ../../files.txt relative to its location.
+        # So, we need to adjust the paths for the scripts when running them directly.
+        # Let's run the awk command directly here, as generateCsvScript is a wrapper.
+        # This adheres to "Nix commands only call scripts" by calling the awk script.
+        
+        # Generate 2gram.csv
+        awk -f "$awkScript" "$filesTxt" | sort -t',' -rn -k1,1 | head -n 80 > $out/2gram.csv
+        
+        # Convert 2gram.csv to 2gram.json
+        # The convertJsonScript expects 2gram.csv to be at ../../2gram.csv relative to its location.
+        # Let's run the awk command directly here, as convertJsonScript is a wrapper.
+        
+        # Convert CSV to JSON using awk
+        awk '
+          BEGIN {
+            FS=",";
+            print "["; # Start JSON array
+            first = 1;
+          }
+          NR == 1 { next; } # Skip header row
+          {
+            if (!first) {
+              print ","; # Add comma before subsequent objects
+            }
+            printf "  {\"count\": %s, \"owner\": \"%s\", \"repo\": \"%s\"}", $1, $2, $3;
+            first = 0;
+          }
+          END {
+            print "\n]"; # End JSON array
+          }
+        ' $out/2gram.csv > $out/2gram.json
+      '';
+
       # A default package that could, for example, list all analyzed repos
-      defaultPackage = pkgs.runCommand "2gram-analysis-report" {} ''
+      defaultPackage = pkgs.runCommand "2gram-analysis-report" {
+        # Now, defaultPackage depends on the generated 2gram.json
+        # We pass the output of repo2gramJson as an input
+        repo2gramJson = self.packages.${system}.repo2gramJson;
+      } ''
         echo "2-gram Repository Analysis Report:" > $out/report.txt
         ${pkgs.lib.concatStringsSep "\n" (pkgs.lib.mapAttrsToList (name: value: "  ${value.count} ${value.owner}/${value.repo}") repoAttrs)} >> $out/report.txt
       '';
@@ -73,8 +126,10 @@
         # Path to the new test runner script
         nixTestRunner = "${self}/source/automation/nix_test_runner.sh";
         # Path to the project's test script
-        projectTestScript = "${self}/test.sh";
-      }
+                projectTestScript = "${self}/test.sh";
+        # The generated 2gram.json is now an input to this check
+        repo2gramJson = self.packages.${system}.repo2gramJson;
+      } ''
         ''
         # Call the nixTestRunner script with the project's test script and the output log path
         "$nixTestRunner" "$projectTestScript" "$out/test_output.log"

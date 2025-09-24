@@ -39,22 +39,13 @@ CONVERT_JSON_SCRIPT="${SCRIPT_DIR}/source/automation/convert_2gram_csv_to_json.s
 
 echo "--- Starting 2-gram Repository Analysis Workflow ---"
 
-# Step 1: Generate the 2-gram CSV file
-echo "1. Generating 2-gram CSV..."
-"$GENERATE_CSV_SCRIPT"
-echo "   2-gram CSV generated: ${SCRIPT_DIR}/2gram.csv"
+# Step 1: Build the Nix flake's default package
+echo "1. Building Nix flake default package..."
+# Set NIX_CONFIG to enable experimental features
+export NIX_CONFIG="experimental-features = nix-command flakes"
 
-# Step 2: Convert the 2-gram CSV to JSON
-echo "2. Converting 2-gram CSV to JSON..."
-"$CONVERT_JSON_SCRIPT"
-echo "   2-gram JSON generated: ${SCRIPT_DIR}/2gram.json"
-
-# Step 3: Build the Nix flake's default package
-echo "3. Building Nix flake default package..."
-# Ensure Nix is configured for flakes and nix-command
-NIX_COMMAND="nix build --extra-experimental-features 'nix-command flakes' .#defaultPackage"
-echo "   Executing: $NIX_COMMAND"
-$NIX_COMMAND
+echo "   Executing: nix build .#defaultPackage"
+nix build .#defaultPackage
 echo "   Nix flake default package built successfully."
 
 echo "--- Workflow Completed ---"
