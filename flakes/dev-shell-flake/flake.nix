@@ -2,9 +2,9 @@
   description = "Provides a development shell for 2-gram analysis.";
 
   inputs = {
-    nixpkgs-pinned.url = "path:../nixpkgs-pinned";
-    flake-utils-wrapper.url = "path:../flake-utils-wrapper";
-    repo-data-flake.url = "path:../repo-data-flake";
+    nixpkgs-pinned.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/nixpkgs-pinned&ref=feature/concept-to-nix-8s";
+    flake-utils-wrapper.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/flake-utils-wrapper&ref=feature/concept-to-nix-8s";
+    repo-data-flake.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/repo-data-flake&ref=feature/concept-to-nix-8s";
   };
 
   outputs = { nixpkgs-pinned, flake-utils-wrapper, repo-data-flake }:
