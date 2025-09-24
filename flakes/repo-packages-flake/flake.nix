@@ -7,7 +7,7 @@
     repo-data-flake.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/repo-data-flake&ref=feature/concept-to-nix-8s";
   };
 
-  outputs = { nixpkgs-pinned, flake-utils-wrapper, repo-data-flake }:
+  outputs = { self, nixpkgs-pinned, flake-utils-wrapper, repo-data-flake }:
     flake-utils-wrapper.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs-pinned.legacyPackages.${system};
