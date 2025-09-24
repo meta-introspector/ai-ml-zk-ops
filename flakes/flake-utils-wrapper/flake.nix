@@ -5,6 +5,6 @@
     flake-utils.url = "github:meta-introspector/flake-utils";
   };
 
-  outputs = { flake-utils, ... }:
+  outputs = { self, flake-utils, ... }:
     flake-utils;
 }
