@@ -1,0 +1,3 @@
+[submodule "vendor/nix/MakeNix"]
+	path = vendor/nix/MakeNix
+	url = https://github.com/fzakaria/MakeNix
