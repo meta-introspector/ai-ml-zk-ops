@@ -39,8 +39,9 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
-# Initialize dry_run flag
+# Initialize flags
 DRY_RUN=false
+COMMITTED_CHANGES=false # Flag to track if a commit actually happened
 
 # Parse arguments
 for arg in "$@"; do
@@ -96,6 +97,7 @@ if git status --porcelain | grep -q .; then
     echo "  Executing: "$COMMIT_SCRIPT" "$COMMIT_MESSAGE""
     "$COMMIT_SCRIPT" "$COMMIT_MESSAGE"
     echo "  Changes committed successfully."
+    COMMITTED_CHANGES=true # Set flag as commit happened
   fi
 else
   echo "  No pending changes detected. Skipping commit."
@@ -113,6 +115,19 @@ if [ "$DRY_RUN" = true ]; then
 else
   echo "  Executing: nix build .#checks.${CURRENT_SYSTEM}.runTests"
   nix build .#checks.${CURRENT_SYSTEM}.runTests
+fi
+
+if [ "$COMMITTED_CHANGES" = true ]; then
+  echo "3. Pushing committed changes to remote..."
+  if [ "$DRY_RUN" = true ]; then
+    echo "  (Dry Run) Would execute: git push"
+  else
+    echo "  Executing: git push"
+    git push
+    echo "  Changes pushed successfully."
+  fi
+else
+  echo "3. No new changes were committed. Skipping push."
 fi
 
 echo "--- Full Workflow Completed ---"
