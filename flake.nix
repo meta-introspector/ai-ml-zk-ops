@@ -12,7 +12,7 @@
   };
 
   outputs = { self, flake-utils-wrapper, nixpkgs-pinned, repo-data-flake, repo-packages-flake, awk-runner-flake, default-package-flake, dev-shell-flake }:
-    flake-utils-wrapper.eachDefaultSystem (system, _self:
+    flake-utils-wrapper.eachDefaultSystem (system:
       let
         pkgs = nixpkgs-pinned.legacyPackages.${system};
         repoAttrs = repo-data-flake.lib.${system}.repoAttrs;
