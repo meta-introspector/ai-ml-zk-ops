@@ -130,7 +130,7 @@
         # The generated 2gram.json is now an input to this check
         repo2gramJson = self.packages.${system}.repo2gramJson;
       } ''
-        echo "Running tests" > $out/test_result.txt
+        touch $out/test_result.txt
       '';
     }); # Closing parenthesis for flake-utils.lib.eachDefaultSystem
 }
