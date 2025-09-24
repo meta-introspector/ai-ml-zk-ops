@@ -119,12 +119,13 @@ fi
 
 if [ "$COMMITTED_CHANGES" = true ]; then
   echo "3. Pushing committed changes to remote..."
+  CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
   if [ "$DRY_RUN" = true ]; then
-    echo "  (Dry Run) Would execute: git push"
+    echo "  (Dry Run) Would execute: git push origin "$CURRENT_BRANCH""
   else
-    echo "  Executing: git push"
-    git push
-    echo "  Changes pushed successfully."
+    echo "  Executing: git push origin "$CURRENT_BRANCH""
+    git push origin "$CURRENT_BRANCH"
+    echo "  Changes pushed successfully to origin/$CURRENT_BRANCH."
   fi
 else
   echo "3. No new changes were committed. Skipping push."
