@@ -1,5 +1,4 @@
-fix: Update nixpkgs input in flake.nix to meta-introspector fork
+fix: Directly execute Nix build command in run_workflow.sh
 
-Corrected the `nixpkgs.url` in `flake.nix` to point to `github:meta-introspector/nixpkgs?ref=feature/CRQ-016-nixify`,
-as per the project's established Nix flake configuration.
-This addresses the issue of using an incorrect `nixpkgs` source.
+Removed the `NIX_TEST_COMMAND` variable and directly executed the Nix build command in `run_workflow.sh`.
+This aims to resolve persistent shell quoting and path resolution issues encountered during Nix flake invocation.
