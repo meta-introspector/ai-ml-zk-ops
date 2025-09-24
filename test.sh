@@ -40,6 +40,9 @@ BUILD_SCRIPT="${SCRIPT_DIR}/build.sh"
 LOG_DIR="${SCRIPT_DIR}/logs"
 LOG_FILE="${LOG_DIR}/build_$(date +%Y%m%d_%H%M%S).log"
 
+# Create the log directory if it doesn't exist
+mkdir -p "$LOG_DIR"
+
 echo "--- Starting Test Workflow ---"
 echo "Executing build.sh and logging output to: $LOG_FILE"
 

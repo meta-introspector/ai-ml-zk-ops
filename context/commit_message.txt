@@ -1,4 +1,4 @@
-fix: Dynamically resolve Nix flake check attribute path
+docs: Add SOP for diagnosing Nix flake build failures
 
-Modified `run_workflow.sh` to dynamically determine the current system and construct the correct Nix flake attribute path for `checks.runTests` (e.g., `.checks.aarch64-linux.runTests`).
-This addresses the 'attribute missing' error when using `flake-utils.lib.eachDefaultSystem`.
+Created `SOP_Diagnosing_Nix_Flake_Build_Failures.md` to guide users, especially beginners,
+through common Nix flake build errors, log interpretation, and debugging techniques.
