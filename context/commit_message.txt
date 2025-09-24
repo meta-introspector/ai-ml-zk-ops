@@ -1,4 +1,4 @@
-fix: Use placeholder inputs in awk-runner-flake/flake.nix
+fix: Use only remote github:meta-introspector URLs in awk-runner-flake/flake.nix
 
-Modified `awk-runner-flake/flake.nix` to use placeholder URLs for its inputs (`nixpkgs-pinned`, `flake-utils-wrapper`, `repo-data-flake`).
-This allows the main `flake.nix` to correctly override these inputs when consuming `awk-runner-flake` as a sub-flake, resolving the "relative path points outside of its parent's store path" error.
+Modified `awk-runner-flake/flake.nix` to strictly use remote `github:meta-introspector` URLs for all its inputs (`nixpkgs-pinned`, `flake-utils-wrapper`, `repo-data-flake`).
+This adheres to the project's policy of using only remote `github:meta-introspector` references and resolves previous flake resolution errors.

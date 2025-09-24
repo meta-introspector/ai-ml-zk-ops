@@ -2,13 +2,10 @@
   description = "A flake for running awk commands on 2-gram data.";
 
   inputs = {
-    # These inputs are defined in the main flake and passed down.
-    # We use placeholder URLs here, which will be overridden by the main flake.
-    # This allows the flake to be self-contained if built in isolation,
-    # but correctly integrated into the monorepo.
-    nixpkgs-pinned.url = "github:NixOS/nixpkgs/nixos-unstable"; # Placeholder
-    flake-utils-wrapper.url = "github:numtide/flake-utils"; # Placeholder
-    repo-data-flake.url = "path:./."; # Placeholder (points to itself, will be overridden)
+    # All inputs must be remote github:meta-introspector URLs.
+    nixpkgs-pinned.url = "github:meta-introspector/nixpkgs?ref=feature/CRQ-016-nixify";
+    flake-utils-wrapper.url = "github:meta-introspector/flake-utils?ref=feature/CRQ-016-nixify";
+    repo-data-flake.url = "github:meta-introspector/ai-ml-zk-ops?ref=feature/concept-to-nix-8s";
   };
 
   outputs = { self, nixpkgs-pinned, flake-utils-wrapper, repo-data-flake } @ inputs:
