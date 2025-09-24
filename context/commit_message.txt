@@ -1,7 +1,4 @@
-refactor: Integrate data generation into Nix flake and simplify build/test scripts
+fix: Simplify checks.runTests buildCommand in flake.nix for debugging
 
-Refactored `flake.nix` to include a new derivation (`packages.repo2gramJson`)
-that generates `2gram.json` within the Nix build system.
-Updated `build.sh` and `test.sh` to remove redundant data generation logic,
-as this is now handled by Nix. This ensures a fully hermetic and reproducible
-data generation and build process within the Nix flake.
+Temporarily simplified the `buildCommand` for `checks.runTests` in `flake.nix` to a basic `echo` statement.
+This aims to isolate the syntax error encountered in the previous build attempt.
