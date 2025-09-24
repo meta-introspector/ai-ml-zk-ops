@@ -1,5 +1,4 @@
-fix: Refactor test.sh to remove local log management
+fix: Update shebang in generate_repo_2gram_csv.sh
 
-Modified `test.sh` to no longer manage local log directories or redirect output to files.
-Instead, it now prints directly to stdout, allowing the calling environment (e.g., `nix_test_runner.sh`)
-to handle log redirection. This resolves the 'Permission denied' error when running tests within Nix derivations.
+Changed the shebang in `generate_repo_2gram_csv.sh` from `#!/bin/bash` to `#!/usr/bin/env bash`.
+This addresses the 'bad interpreter' error when the script is executed within the Nix build environment.

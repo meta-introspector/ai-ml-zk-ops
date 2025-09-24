@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Filename: generate_repo_2gram_csv.sh
 # Description: This script automates the 2-gram analysis of repository names
