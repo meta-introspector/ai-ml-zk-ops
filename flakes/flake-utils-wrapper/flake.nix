@@ -6,5 +6,5 @@
   };
 
   outputs = { self, flake-utils, ... }:
-    flake-utils;
+    flake-utils.lib;
 }
