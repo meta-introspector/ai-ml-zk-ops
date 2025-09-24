@@ -1,4 +1,4 @@
-fix: Directly execute Nix build command in run_workflow.sh
+fix: Configure Nix experimental features via NIX_CONFIG and simplify build command
 
-Removed the `NIX_TEST_COMMAND` variable and directly executed the Nix build command in `run_workflow.sh`.
-This aims to resolve persistent shell quoting and path resolution issues encountered during Nix flake invocation.
+Set `NIX_CONFIG` environment variable to enable `nix-command` and `flakes` experimental features.
+Simplified the Nix build command in `run_workflow.sh` to `nix build .#checks.runTests` to address flake resolution issues.

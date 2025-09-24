@@ -65,7 +65,10 @@ fi
 
 # Step 2: Run the Nix flake's test check
 echo "2. Running Nix flake tests (via checks.runTests)..."
-nix build --extra-experimental-features 'nix-command flakes' flake:./.#checks.runTests
+export NIX_CONFIG="experimental-features = nix-command flakes"
+
+echo "   Executing: nix build .#checks.runTests"
+nix build .#checks.runTests
 
 echo "--- Full Workflow Completed ---"
 echo "The code has been committed, and tests have been run via Nix."
