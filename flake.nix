@@ -1,5 +1,4 @@
-{
-  description = "Nix flake for 2-gram repository analysis";
+{ description = "Nix flake for 2-gram repository analysis";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11"; # Or a more appropriate branch/tag
@@ -22,10 +21,8 @@
       # This function takes an object { count, owner, repo }
       # and returns an attribute set like { count = 10; owner = "NixOS"; repo = "nixpkgs"; }
       mkRepoAttr = { count, owner, repo }:
-        { # inherit count owner repo;
-          count = count;
-          owner = owner;
-          repo = repo;
+        {
+          inherit count owner repo;
           # You could add more complex derivations here, e.g.,
           # package = pkgs.stdenv.mkDerivation {
           #   pname = "${owner}-${repo}";
@@ -41,7 +38,10 @@
 
       # Convert the list of repo data into an attribute set
       # The key for each attribute will be "${owner}-${repo}"
-      repoAttrs = builtins.listToAttrs (map (item: { name = "${item.owner}-${item.repo}"; value = mkRepoAttr item; }) repoData);
+      repoAttrs = builtins.listToAttrs (map (item: {
+        name = "${item.owner}-${item.repo}";
+        value = mkRepoAttr item;
+      }) repoData);
 
     in {
       # Expose the generated repository attributes
@@ -62,5 +62,21 @@
           echo "You can inspect the repo data using 'nix eval .#repos --json'"
         '';
       };
+
+      # New check output to run test.sh
+      checks.${builtins.currentSystem}.runTests = pkgs.runCommand "run-tests" {
+        # The source for this derivation is the entire flake directory
+        src = self;
+        # The test script itself
+        testScript = "${self}/test.sh";
+      }
+        ''
+        # Create a temporary directory for logs within the Nix build environment
+        mkdir -p logs
+        # Run the test script, redirecting its output to a log file
+        # The log file will be placed in the Nix store output
+        "$testScript" > $out/test_output.log 2>&1
+        # The test derivation succeeds if testScript exits with 0
+      '';
     };
 }
