@@ -1,4 +1,4 @@
-fix: Use only remote github:meta-introspector URLs in awk-runner-flake/flake.nix
+fix: Use explicit remote github:meta-introspector URLs with dir and ref in awk-runner-flake/flake.nix
 
-Modified `awk-runner-flake/flake.nix` to strictly use remote `github:meta-introspector` URLs for all its inputs (`nixpkgs-pinned`, `flake-utils-wrapper`, `repo-data-flake`).
-This adheres to the project's policy of using only remote `github:meta-introspector` references and resolves previous flake resolution errors.
+Modified `awk-runner-flake/flake.nix` to strictly use remote `github:meta-introspector` URLs for all its inputs (`nixpkgs-pinned`, `flake-utils-wrapper`, `repo-data-flake`), including the `dir` and `ref` parameters.
+This adheres to the project's policy of using explicit remote references and resolves previous flake resolution errors.

@@ -2,10 +2,11 @@
   description = "A flake for running awk commands on 2-gram data.";
 
   inputs = {
-    # All inputs must be remote github:meta-introspector URLs.
-    nixpkgs-pinned.url = "github:meta-introspector/nixpkgs?ref=feature/CRQ-016-nixify";
-    flake-utils-wrapper.url = "github:meta-introspector/flake-utils?ref=feature/CRQ-016-nixify";
-    repo-data-flake.url = "github:meta-introspector/ai-ml-zk-ops?ref=feature/concept-to-nix-8s";
+    # All inputs must be remote references to the current repository,
+    # using the specified github:meta-introspector pattern and branch.
+    nixpkgs-pinned.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/nixpkgs-pinned&ref=feature/concept-to-nix-8s";
+    flake-utils-wrapper.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/flake-utils-wrapper&ref=feature/concept-to-nix-8s";
+    repo-data-flake.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/repo-data-flake&ref=feature/concept-to-nix-8s";
   };
 
   outputs = { self, nixpkgs-pinned, flake-utils-wrapper, repo-data-flake } @ inputs:
