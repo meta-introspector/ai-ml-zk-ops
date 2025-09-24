@@ -3,7 +3,7 @@
 
   inputs = {
     flake-utils-wrapper.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/flake-utils-wrapper&ref=feature/concept-to-nix-8s";
-    nixpkgs-pinned.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/nixpkgs-pinned&ref=feature/concept-to-nix-8s";
+    nixpkgs.url = "github:meta-introspector/nixpkgs?ref=feature/CRQ-016-nixify";
     repo-data-flake.url = "./flakes/repo-data-flake";
     repo-packages-flake.url = "./flakes/repo-packages-flake";
     awk-runner-flake.url = "./flakes/awk-runner-flake";
@@ -11,10 +11,10 @@
     dev-shell-flake.url = "./flakes/dev-shell-flake";
   };
 
-  outputs = { self, flake-utils-wrapper, nixpkgs-pinned, repo-data-flake, repo-packages-flake, awk-runner-flake, default-package-flake, dev-shell-flake }:
+  outputs = { self, flake-utils-wrapper, nixpkgs, repo-data-flake, repo-packages-flake, awk-runner-flake, default-package-flake, dev-shell-flake }:
     flake-utils-wrapper.lib.eachDefaultSystem (system:
       let
-        pkgs = nixpkgs-pinned.legacyPackages.${system};
+        pkgs = nixpkgs.legacyPackages.${system};
         repoAttrs = repo-data-flake.lib.${system}.repoAttrs;
       in
       {

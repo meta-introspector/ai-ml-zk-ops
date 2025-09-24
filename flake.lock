@@ -9,11 +9,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-ReOXbBOdjjfDNEcND6K0ZEpQSq8m0qwofY+QHRTHuh0=",
-        "path": "/nix/store/h3n5km4j96wcjh3xbbj6awmn4pawm4ky-source/flakes/awk-runner-flake",
+        "path": "/nix/store/h9k9xrbwn695adxqqdxzkkph3mixbkfd-source/flakes/awk-runner-flake",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/h3n5km4j96wcjh3xbbj6awmn4pawm4ky-source/flakes/awk-runner-flake",
+        "path": "/nix/store/h9k9xrbwn695adxqqdxzkkph3mixbkfd-source/flakes/awk-runner-flake",
         "type": "path"
       }
     },
@@ -26,11 +26,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-ApLMxEkTTlozTsQyjLb8D/hJC48iztBaDyZdxvkzQ8Q=",
-        "path": "/nix/store/h3n5km4j96wcjh3xbbj6awmn4pawm4ky-source/flakes/default-package-flake",
+        "path": "/nix/store/h9k9xrbwn695adxqqdxzkkph3mixbkfd-source/flakes/default-package-flake",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/h3n5km4j96wcjh3xbbj6awmn4pawm4ky-source/flakes/default-package-flake",
+        "path": "/nix/store/h9k9xrbwn695adxqqdxzkkph3mixbkfd-source/flakes/default-package-flake",
         "type": "path"
       }
     },
@@ -43,11 +43,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-ZIFJIRvZpWt4tYrgFVgp5fgP7x9xEmf2qSBVR+nm30Q=",
-        "path": "/nix/store/h3n5km4j96wcjh3xbbj6awmn4pawm4ky-source/flakes/dev-shell-flake",
+        "path": "/nix/store/h9k9xrbwn695adxqqdxzkkph3mixbkfd-source/flakes/dev-shell-flake",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/h3n5km4j96wcjh3xbbj6awmn4pawm4ky-source/flakes/dev-shell-flake",
+        "path": "/nix/store/h9k9xrbwn695adxqqdxzkkph3mixbkfd-source/flakes/dev-shell-flake",
         "type": "path"
       }
     },
@@ -327,27 +327,6 @@
     },
     "nixpkgs-pinned_4": {
       "inputs": {
-        "nixpkgs": "nixpkgs_7"
-      },
-      "locked": {
-        "dir": "flakes/nixpkgs-pinned",
-        "lastModified": 1758737932,
-        "narHash": "sha256-34UPsd1sKPgsFivGRAXyd369LADKqgt3akSzheGhcM0=",
-        "owner": "meta-introspector",
-        "repo": "ai-ml-zk-ops",
-        "rev": "1d4b0df30b2163b5abf6a85e3c83f174afd3db4b",
-        "type": "github"
-      },
-      "original": {
-        "dir": "flakes/nixpkgs-pinned",
-        "owner": "meta-introspector",
-        "ref": "feature/concept-to-nix-8s",
-        "repo": "ai-ml-zk-ops",
-        "type": "github"
-      }
-    },
-    "nixpkgs-pinned_5": {
-      "inputs": {
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
@@ -581,11 +560,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-Hi/zLnOxHH89QFCAAckX8WoxP0qfMsjZkjVE2/anewQ=",
-        "path": "/nix/store/h3n5km4j96wcjh3xbbj6awmn4pawm4ky-source/flakes/repo-data-flake",
+        "path": "/nix/store/h9k9xrbwn695adxqqdxzkkph3mixbkfd-source/flakes/repo-data-flake",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/h3n5km4j96wcjh3xbbj6awmn4pawm4ky-source/flakes/repo-data-flake",
+        "path": "/nix/store/h9k9xrbwn695adxqqdxzkkph3mixbkfd-source/flakes/repo-data-flake",
         "type": "path"
       }
     },
@@ -613,17 +592,17 @@
     "repo-packages-flake": {
       "inputs": {
         "flake-utils-wrapper": "flake-utils-wrapper_5",
-        "nixpkgs-pinned": "nixpkgs-pinned_5",
+        "nixpkgs-pinned": "nixpkgs-pinned_4",
         "repo-data-flake": "repo-data-flake_5"
       },
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-LhuUbajxp+wAiHu8XrbM1WVkUqK3ouWFSBEJ9yXWyr0=",
-        "path": "/nix/store/h3n5km4j96wcjh3xbbj6awmn4pawm4ky-source/flakes/repo-packages-flake",
+        "path": "/nix/store/h9k9xrbwn695adxqqdxzkkph3mixbkfd-source/flakes/repo-packages-flake",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/h3n5km4j96wcjh3xbbj6awmn4pawm4ky-source/flakes/repo-packages-flake",
+        "path": "/nix/store/h9k9xrbwn695adxqqdxzkkph3mixbkfd-source/flakes/repo-packages-flake",
         "type": "path"
       }
     },
@@ -633,7 +612,7 @@
         "default-package-flake": "default-package-flake",
         "dev-shell-flake": "dev-shell-flake",
         "flake-utils-wrapper": "flake-utils-wrapper_4",
-        "nixpkgs-pinned": "nixpkgs-pinned_4",
+        "nixpkgs": "nixpkgs_7",
         "repo-data-flake": "repo-data-flake_4",
         "repo-packages-flake": "repo-packages-flake"
       }
