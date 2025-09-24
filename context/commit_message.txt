@@ -1,4 +1,4 @@
-fix: Add missing closing brace to flakes/repo-data-flake/flake.nix
+fix: Reformat flakes/repo-data-flake/flake.nix for readability and syntax
 
-Corrected a syntax error in `flakes/repo-data-flake/flake.nix` by adding a missing closing brace `}` at the end of the file.
-This resolves the "syntax error, unexpected end of file" error encountered during Nix flake evaluation.
+Reformated `flakes/repo-data-flake/flake.nix` with proper indentation and line breaks.
+This addresses the "syntax error, unexpected end of file" by making the structure clear and ensuring all braces/parentheses are correctly matched.
