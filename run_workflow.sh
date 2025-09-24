@@ -112,6 +112,14 @@ fi
 echo "2. Running Nix flake tests (via checks.runTests)..."
 export NIX_CONFIG="experimental-features = nix-command flakes"
 
+# Run a general flake check for the main ai-ml-zk-ops flake
+echo "  Executing: nix flake check /data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops"
+if [ "$DRY_RUN" = true ]; then
+  echo "  (Dry Run) Would execute: nix flake check /data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops"
+else
+  nix flake check /data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops
+fi
+
 # Get the current system
 CURRENT_SYSTEM=$(nix eval --raw --impure --expr 'builtins.currentSystem')
 

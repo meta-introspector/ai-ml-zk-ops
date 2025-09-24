@@ -7,14 +7,20 @@
         "repo-data-flake": "repo-data-flake"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-ReOXbBOdjjfDNEcND6K0ZEpQSq8m0qwofY+QHRTHuh0=",
-        "path": "/nix/store/arvqp0r9cg5wr221z5nkhmdlbh92dcxm-source/flakes/awk-runner-flake",
-        "type": "path"
+        "dir": "flakes/awk-runner-flake",
+        "lastModified": 1758737932,
+        "narHash": "sha256-34UPsd1sKPgsFivGRAXyd369LADKqgt3akSzheGhcM0=",
+        "owner": "meta-introspector",
+        "repo": "ai-ml-zk-ops",
+        "rev": "1d4b0df30b2163b5abf6a85e3c83f174afd3db4b",
+        "type": "github"
       },
       "original": {
-        "path": "/nix/store/arvqp0r9cg5wr221z5nkhmdlbh92dcxm-source/flakes/awk-runner-flake",
-        "type": "path"
+        "dir": "flakes/awk-runner-flake",
+        "owner": "meta-introspector",
+        "ref": "feature/concept-to-nix-8s",
+        "repo": "ai-ml-zk-ops",
+        "type": "github"
       }
     },
     "default-package-flake": {
@@ -24,14 +30,20 @@
         "repo-data-flake": "repo-data-flake_2"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-ApLMxEkTTlozTsQyjLb8D/hJC48iztBaDyZdxvkzQ8Q=",
-        "path": "/nix/store/arvqp0r9cg5wr221z5nkhmdlbh92dcxm-source/flakes/default-package-flake",
-        "type": "path"
+        "dir": "flakes/default-package-flake",
+        "lastModified": 1758737932,
+        "narHash": "sha256-34UPsd1sKPgsFivGRAXyd369LADKqgt3akSzheGhcM0=",
+        "owner": "meta-introspector",
+        "repo": "ai-ml-zk-ops",
+        "rev": "1d4b0df30b2163b5abf6a85e3c83f174afd3db4b",
+        "type": "github"
       },
       "original": {
-        "path": "/nix/store/arvqp0r9cg5wr221z5nkhmdlbh92dcxm-source/flakes/default-package-flake",
-        "type": "path"
+        "dir": "flakes/default-package-flake",
+        "owner": "meta-introspector",
+        "ref": "feature/concept-to-nix-8s",
+        "repo": "ai-ml-zk-ops",
+        "type": "github"
       }
     },
     "dev-shell-flake": {
@@ -41,14 +53,20 @@
         "repo-data-flake": "repo-data-flake_3"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-ZIFJIRvZpWt4tYrgFVgp5fgP7x9xEmf2qSBVR+nm30Q=",
-        "path": "/nix/store/arvqp0r9cg5wr221z5nkhmdlbh92dcxm-source/flakes/dev-shell-flake",
-        "type": "path"
+        "dir": "flakes/dev-shell-flake",
+        "lastModified": 1758737932,
+        "narHash": "sha256-34UPsd1sKPgsFivGRAXyd369LADKqgt3akSzheGhcM0=",
+        "owner": "meta-introspector",
+        "repo": "ai-ml-zk-ops",
+        "rev": "1d4b0df30b2163b5abf6a85e3c83f174afd3db4b",
+        "type": "github"
       },
       "original": {
-        "path": "/nix/store/arvqp0r9cg5wr221z5nkhmdlbh92dcxm-source/flakes/dev-shell-flake",
-        "type": "path"
+        "dir": "flakes/dev-shell-flake",
+        "owner": "meta-introspector",
+        "ref": "feature/concept-to-nix-8s",
+        "repo": "ai-ml-zk-ops",
+        "type": "github"
       }
     },
     "flake-utils": {
@@ -95,20 +113,14 @@
         "flake-utils": "flake-utils_2"
       },
       "locked": {
-        "dir": "flakes/flake-utils-wrapper",
-        "lastModified": 1758737932,
-        "narHash": "sha256-34UPsd1sKPgsFivGRAXyd369LADKqgt3akSzheGhcM0=",
-        "owner": "meta-introspector",
-        "repo": "ai-ml-zk-ops",
-        "rev": "1d4b0df30b2163b5abf6a85e3c83f174afd3db4b",
-        "type": "github"
+        "lastModified": 1,
+        "narHash": "sha256-XdxQrHzOsoQ0spVbJ77H2Mb/JMMeWO7ca+ys8m2l3Fc=",
+        "path": "../flake-utils-wrapper",
+        "type": "path"
       },
       "original": {
-        "dir": "flakes/flake-utils-wrapper",
-        "owner": "meta-introspector",
-        "ref": "feature/concept-to-nix-8s",
-        "repo": "ai-ml-zk-ops",
-        "type": "github"
+        "path": "../flake-utils-wrapper",
+        "type": "path"
       }
     },
     "flake-utils-wrapper_3": {
@@ -116,20 +128,14 @@
         "flake-utils": "flake-utils_3"
       },
       "locked": {
-        "dir": "flakes/flake-utils-wrapper",
-        "lastModified": 1758737932,
-        "narHash": "sha256-34UPsd1sKPgsFivGRAXyd369LADKqgt3akSzheGhcM0=",
-        "owner": "meta-introspector",
-        "repo": "ai-ml-zk-ops",
-        "rev": "1d4b0df30b2163b5abf6a85e3c83f174afd3db4b",
-        "type": "github"
+        "lastModified": 1,
+        "narHash": "sha256-XdxQrHzOsoQ0spVbJ77H2Mb/JMMeWO7ca+ys8m2l3Fc=",
+        "path": "../flake-utils-wrapper",
+        "type": "path"
       },
       "original": {
-        "dir": "flakes/flake-utils-wrapper",
-        "owner": "meta-introspector",
-        "ref": "feature/concept-to-nix-8s",
-        "repo": "ai-ml-zk-ops",
-        "type": "github"
+        "path": "../flake-utils-wrapper",
+        "type": "path"
       }
     },
     "flake-utils-wrapper_4": {
@@ -158,20 +164,14 @@
         "flake-utils": "flake-utils_5"
       },
       "locked": {
-        "dir": "flakes/flake-utils-wrapper",
-        "lastModified": 1758737932,
-        "narHash": "sha256-34UPsd1sKPgsFivGRAXyd369LADKqgt3akSzheGhcM0=",
-        "owner": "meta-introspector",
-        "repo": "ai-ml-zk-ops",
-        "rev": "1d4b0df30b2163b5abf6a85e3c83f174afd3db4b",
-        "type": "github"
+        "lastModified": 1,
+        "narHash": "sha256-XdxQrHzOsoQ0spVbJ77H2Mb/JMMeWO7ca+ys8m2l3Fc=",
+        "path": "../flake-utils-wrapper",
+        "type": "path"
       },
       "original": {
-        "dir": "flakes/flake-utils-wrapper",
-        "owner": "meta-introspector",
-        "ref": "feature/concept-to-nix-8s",
-        "repo": "ai-ml-zk-ops",
-        "type": "github"
+        "path": "../flake-utils-wrapper",
+        "type": "path"
       }
     },
     "flake-utils_2": {
@@ -288,20 +288,14 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "dir": "flakes/nixpkgs-pinned",
-        "lastModified": 1758737932,
-        "narHash": "sha256-34UPsd1sKPgsFivGRAXyd369LADKqgt3akSzheGhcM0=",
-        "owner": "meta-introspector",
-        "repo": "ai-ml-zk-ops",
-        "rev": "1d4b0df30b2163b5abf6a85e3c83f174afd3db4b",
-        "type": "github"
+        "lastModified": 1,
+        "narHash": "sha256-os5rQSFEdCAYuWdrmAh8YtBbflMfaerZnXfV1Ysy730=",
+        "path": "../nixpkgs-pinned",
+        "type": "path"
       },
       "original": {
-        "dir": "flakes/nixpkgs-pinned",
-        "owner": "meta-introspector",
-        "ref": "feature/concept-to-nix-8s",
-        "repo": "ai-ml-zk-ops",
-        "type": "github"
+        "path": "../nixpkgs-pinned",
+        "type": "path"
       }
     },
     "nixpkgs-pinned_3": {
@@ -309,20 +303,14 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "dir": "flakes/nixpkgs-pinned",
-        "lastModified": 1758737932,
-        "narHash": "sha256-34UPsd1sKPgsFivGRAXyd369LADKqgt3akSzheGhcM0=",
-        "owner": "meta-introspector",
-        "repo": "ai-ml-zk-ops",
-        "rev": "1d4b0df30b2163b5abf6a85e3c83f174afd3db4b",
-        "type": "github"
+        "lastModified": 1,
+        "narHash": "sha256-os5rQSFEdCAYuWdrmAh8YtBbflMfaerZnXfV1Ysy730=",
+        "path": "../nixpkgs-pinned",
+        "type": "path"
       },
       "original": {
-        "dir": "flakes/nixpkgs-pinned",
-        "owner": "meta-introspector",
-        "ref": "feature/concept-to-nix-8s",
-        "repo": "ai-ml-zk-ops",
-        "type": "github"
+        "path": "../nixpkgs-pinned",
+        "type": "path"
       }
     },
     "nixpkgs-pinned_4": {
@@ -330,20 +318,14 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "dir": "flakes/nixpkgs-pinned",
-        "lastModified": 1758737932,
-        "narHash": "sha256-34UPsd1sKPgsFivGRAXyd369LADKqgt3akSzheGhcM0=",
-        "owner": "meta-introspector",
-        "repo": "ai-ml-zk-ops",
-        "rev": "1d4b0df30b2163b5abf6a85e3c83f174afd3db4b",
-        "type": "github"
+        "lastModified": 1,
+        "narHash": "sha256-os5rQSFEdCAYuWdrmAh8YtBbflMfaerZnXfV1Ysy730=",
+        "path": "../nixpkgs-pinned",
+        "type": "path"
       },
       "original": {
-        "dir": "flakes/nixpkgs-pinned",
-        "owner": "meta-introspector",
-        "ref": "feature/concept-to-nix-8s",
-        "repo": "ai-ml-zk-ops",
-        "type": "github"
+        "path": "../nixpkgs-pinned",
+        "type": "path"
       }
     },
     "nixpkgs_10": {
@@ -516,20 +498,14 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "dir": "flakes/repo-data-flake",
-        "lastModified": 1758737932,
-        "narHash": "sha256-34UPsd1sKPgsFivGRAXyd369LADKqgt3akSzheGhcM0=",
-        "owner": "meta-introspector",
-        "repo": "ai-ml-zk-ops",
-        "rev": "1d4b0df30b2163b5abf6a85e3c83f174afd3db4b",
-        "type": "github"
+        "lastModified": 1,
+        "narHash": "sha256-JDcIpFWv21YjxuTjPHSK8l3M1xEntzkpruFGMvRre/4=",
+        "path": "../repo-data-flake",
+        "type": "path"
       },
       "original": {
-        "dir": "flakes/repo-data-flake",
-        "owner": "meta-introspector",
-        "ref": "feature/concept-to-nix-8s",
-        "repo": "ai-ml-zk-ops",
-        "type": "github"
+        "path": "../repo-data-flake",
+        "type": "path"
       }
     },
     "repo-data-flake_3": {
@@ -537,20 +513,14 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "dir": "flakes/repo-data-flake",
-        "lastModified": 1758737932,
-        "narHash": "sha256-34UPsd1sKPgsFivGRAXyd369LADKqgt3akSzheGhcM0=",
-        "owner": "meta-introspector",
-        "repo": "ai-ml-zk-ops",
-        "rev": "1d4b0df30b2163b5abf6a85e3c83f174afd3db4b",
-        "type": "github"
+        "lastModified": 1,
+        "narHash": "sha256-JDcIpFWv21YjxuTjPHSK8l3M1xEntzkpruFGMvRre/4=",
+        "path": "../repo-data-flake",
+        "type": "path"
       },
       "original": {
-        "dir": "flakes/repo-data-flake",
-        "owner": "meta-introspector",
-        "ref": "feature/concept-to-nix-8s",
-        "repo": "ai-ml-zk-ops",
-        "type": "github"
+        "path": "../repo-data-flake",
+        "type": "path"
       }
     },
     "repo-data-flake_4": {
@@ -558,21 +528,6 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-Hi/zLnOxHH89QFCAAckX8WoxP0qfMsjZkjVE2/anewQ=",
-        "path": "/nix/store/arvqp0r9cg5wr221z5nkhmdlbh92dcxm-source/flakes/repo-data-flake",
-        "type": "path"
-      },
-      "original": {
-        "path": "/nix/store/arvqp0r9cg5wr221z5nkhmdlbh92dcxm-source/flakes/repo-data-flake",
-        "type": "path"
-      }
-    },
-    "repo-data-flake_5": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_10"
-      },
-      "locked": {
         "dir": "flakes/repo-data-flake",
         "lastModified": 1758737932,
         "narHash": "sha256-34UPsd1sKPgsFivGRAXyd369LADKqgt3akSzheGhcM0=",
@@ -587,6 +542,21 @@
         "ref": "feature/concept-to-nix-8s",
         "repo": "ai-ml-zk-ops",
         "type": "github"
+      }
+    },
+    "repo-data-flake_5": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_10"
+      },
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-JDcIpFWv21YjxuTjPHSK8l3M1xEntzkpruFGMvRre/4=",
+        "path": "../repo-data-flake",
+        "type": "path"
+      },
+      "original": {
+        "path": "../repo-data-flake",
+        "type": "path"
       }
     },
     "repo-packages-flake": {
@@ -596,14 +566,20 @@
         "repo-data-flake": "repo-data-flake_5"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-LhuUbajxp+wAiHu8XrbM1WVkUqK3ouWFSBEJ9yXWyr0=",
-        "path": "/nix/store/arvqp0r9cg5wr221z5nkhmdlbh92dcxm-source/flakes/repo-packages-flake",
-        "type": "path"
+        "dir": "flakes/repo-packages-flake",
+        "lastModified": 1758737932,
+        "narHash": "sha256-34UPsd1sKPgsFivGRAXyd369LADKqgt3akSzheGhcM0=",
+        "owner": "meta-introspector",
+        "repo": "ai-ml-zk-ops",
+        "rev": "1d4b0df30b2163b5abf6a85e3c83f174afd3db4b",
+        "type": "github"
       },
       "original": {
-        "path": "/nix/store/arvqp0r9cg5wr221z5nkhmdlbh92dcxm-source/flakes/repo-packages-flake",
-        "type": "path"
+        "dir": "flakes/repo-packages-flake",
+        "owner": "meta-introspector",
+        "ref": "feature/concept-to-nix-8s",
+        "repo": "ai-ml-zk-ops",
+        "type": "github"
       }
     },
     "root": {

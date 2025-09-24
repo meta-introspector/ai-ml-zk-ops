@@ -4,11 +4,11 @@
   inputs = {
     flake-utils-wrapper.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/flake-utils-wrapper&ref=feature/concept-to-nix-8s";
     nixpkgs.url = "github:meta-introspector/nixpkgs?ref=feature/CRQ-016-nixify";
-    repo-data-flake.url = "./flakes/repo-data-flake";
-    repo-packages-flake.url = "./flakes/repo-packages-flake";
-    awk-runner-flake.url = "./flakes/awk-runner-flake";
-    default-package-flake.url = "./flakes/default-package-flake";
-    dev-shell-flake.url = "./flakes/dev-shell-flake";
+    repo-data-flake.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/repo-data-flake&ref=feature/concept-to-nix-8s";
+    repo-packages-flake.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/repo-packages-flake&ref=feature/concept-to-nix-8s";
+    awk-runner-flake.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/awk-runner-flake&ref=feature/concept-to-nix-8s";
+    default-package-flake.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/default-package-flake&ref=feature/concept-to-nix-8s";
+    dev-shell-flake.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/dev-shell-flake&ref=feature/concept-to-nix-8s";
   };
 
   outputs = { self, flake-utils-wrapper, nixpkgs, repo-data-flake, repo-packages-flake, awk-runner-flake, default-package-flake, dev-shell-flake }:
