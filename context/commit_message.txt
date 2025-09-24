@@ -1,4 +1,5 @@
-feat: Refactor Nix flake checks to use dedicated test runner script
+fix: Update nixpkgs input in flake.nix to meta-introspector fork
 
-Introduced `source/automation/nix_test_runner.sh` to encapsulate the logic for running project tests within Nix derivations.
-Updated `flake.nix` to call this new script for the `checks.runTests` output, adhering to the rule of Nix commands only calling scripts.
+Corrected the `nixpkgs.url` in `flake.nix` to point to `github:meta-introspector/nixpkgs?ref=feature/CRQ-016-nixify`,
+as per the project's established Nix flake configuration.
+This addresses the issue of using an incorrect `nixpkgs` source.

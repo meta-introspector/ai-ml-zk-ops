@@ -2,7 +2,7 @@
   description = "Nix flake for 2-gram repository analysis";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11"; # Or a more appropriate branch/tag
+    nixpkgs.url = "github:meta-introspector/nixpkgs?ref=feature/CRQ-016-nixify"; # User specified: "we cannot use nixos we use meta-introspector in our flake"
   };
 
   outputs = { self, nixpkgs }:
