@@ -1,4 +1,4 @@
-fix: Simplify checks.runTests buildCommand in flake.nix for debugging
+fix: Correct syntax error in flake.nix checks.runTests buildCommand
 
-Temporarily simplified the `buildCommand` for `checks.runTests` in `flake.nix` to a basic `echo` statement.
-This aims to isolate the syntax error encountered in the previous build attempt.
+Removed duplicate `''` from the `buildCommand` of `checks.runTests` in `flake.nix`,
+resolving the 'syntax error, unexpected end of file' issue.
