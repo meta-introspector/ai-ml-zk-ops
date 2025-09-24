@@ -1,0 +1,8 @@
+{
+  "id": "tm-sophia-integration",
+  "content": "Integrate Sophia for parsing, querying, and updating the task graph in Rust.",
+  "status": "pending",
+  "dependencies": [
+    "tm-turtle-repr"
+  ]
+}
