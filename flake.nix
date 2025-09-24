@@ -3,12 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:meta-introspector/nixpkgs?ref=feature/CRQ-016-nixify"; # User specified: "we cannot use nixos we use meta-introspector in our flake"
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs }:
-    let
-      # Import the Nixpkgs library
-      pkgs = nixpkgs.legacyPackages.${builtins.currentSystem};
+  outputs = { self, nixpkgs, flake-utils }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        # Import the Nixpkgs library
+        pkgs = nixpkgs.legacyPackages.${system};
 
       # Path to the generated 2gram.json file
       # Assuming 2gram.json is in the same directory as flake.nix
@@ -50,13 +52,13 @@
       repos = repoAttrs;
 
       # A default package that could, for example, list all analyzed repos
-      defaultPackage.${builtins.currentSystem} = pkgs.runCommand "2gram-analysis-report" {} ''
+      defaultPackage = pkgs.runCommand "2gram-analysis-report" {} ''
         echo "2-gram Repository Analysis Report:" > $out/report.txt
         ${pkgs.lib.concatStringsSep "\n" (pkgs.lib.mapAttrsToList (name: value: "  ${value.count} ${value.owner}/${value.repo}") repoAttrs)} >> $out/report.txt
       '';
 
       # A development shell that could provide tools for further analysis
-      devShell.${builtins.currentSystem} = pkgs.mkShell {
+      devShell = pkgs.mkShell {
         buildInputs = [ pkgs.jq ]; # Example: include jq for JSON processing
         shellHook = ''
           echo "Welcome to the 2-gram analysis dev shell!"
@@ -65,7 +67,7 @@
       };
 
       # New check output to run test.sh via nix_test_runner.sh
-      checks.${builtins.currentSystem}.runTests = pkgs.runCommand "run-tests" {
+      checks.runTests = pkgs.runCommand "run-tests" {
         # The source for this derivation is the entire flake directory
         src = self;
         # Path to the new test runner script
@@ -77,5 +79,5 @@
         # Call the nixTestRunner script with the project's test script and the output log path
         "$nixTestRunner" "$projectTestScript" "$out/test_output.log"
       '';
-    };
+    }); # Closing parenthesis for flake-utils.lib.eachDefaultSystem
 }

@@ -1,4 +1,4 @@
-fix: Configure Nix experimental features via NIX_CONFIG and simplify build command
+fix: Refactor flake.nix to use flake-utils.lib.eachDefaultSystem
 
-Set `NIX_CONFIG` environment variable to enable `nix-command` and `flakes` experimental features.
-Simplified the Nix build command in `run_workflow.sh` to `nix build .#checks.runTests` to address flake resolution issues.
+Modified `flake.nix` to use `flake-utils.lib.eachDefaultSystem` to correctly handle `builtins.currentSystem`.
+This addresses the 'attribute currentSystem missing' error and improves flake compatibility across different systems.
