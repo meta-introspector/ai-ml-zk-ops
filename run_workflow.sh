@@ -67,8 +67,11 @@ fi
 echo "2. Running Nix flake tests (via checks.runTests)..."
 export NIX_CONFIG="experimental-features = nix-command flakes"
 
-echo "   Executing: nix build .#checks.runTests"
-nix build .#checks.runTests
+# Get the current system
+CURRENT_SYSTEM=$(nix eval --raw --impure --expr 'builtins.currentSystem')
+
+echo "   Executing: nix build .#checks.${CURRENT_SYSTEM}.runTests"
+nix build .#checks.${CURRENT_SYSTEM}.runTests
 
 echo "--- Full Workflow Completed ---"
 echo "The code has been committed, and tests have been run via Nix."

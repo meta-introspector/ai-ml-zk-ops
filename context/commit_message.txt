@@ -1,4 +1,4 @@
-fix: Refactor flake.nix to use flake-utils.lib.eachDefaultSystem
+fix: Dynamically resolve Nix flake check attribute path
 
-Modified `flake.nix` to use `flake-utils.lib.eachDefaultSystem` to correctly handle `builtins.currentSystem`.
-This addresses the 'attribute currentSystem missing' error and improves flake compatibility across different systems.
+Modified `run_workflow.sh` to dynamically determine the current system and construct the correct Nix flake attribute path for `checks.runTests` (e.g., `.checks.aarch64-linux.runTests`).
+This addresses the 'attribute missing' error when using `flake-utils.lib.eachDefaultSystem`.
