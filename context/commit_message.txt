@@ -1,4 +1,4 @@
-fix: Correct relative paths in awk-runner-flake/flake.nix
+fix: Use placeholder inputs in awk-runner-flake/flake.nix
 
-Updated the input paths in `awk-runner-flake/flake.nix` from `path:../<flake-name>` to `path:../../flakes/<flake-name>`.
-This resolves the "relative path points outside of its parent's store path" error when building the flake, ensuring correct resolution of sub-flake inputs from the project root.
+Modified `awk-runner-flake/flake.nix` to use placeholder URLs for its inputs (`nixpkgs-pinned`, `flake-utils-wrapper`, `repo-data-flake`).
+This allows the main `flake.nix` to correctly override these inputs when consuming `awk-runner-flake` as a sub-flake, resolving the "relative path points outside of its parent's store path" error.
