@@ -1,1 +1,4 @@
-feat: Initial commit message from context
+fix: Update Nix flake invocation in run_workflow.sh
+
+Corrected the Nix flake invocation to use explicit 'flake:./.#checks.runTests' syntax and double quotes for experimental features.
+This addresses issues with flake resolution and experimental feature warnings.

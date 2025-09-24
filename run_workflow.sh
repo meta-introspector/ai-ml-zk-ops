@@ -65,7 +65,7 @@ fi
 
 # Step 2: Run the Nix flake's test check
 echo "2. Running Nix flake tests (via checks.runTests)..."
-NIX_TEST_COMMAND="nix build --extra-experimental-features 'nix-command flakes' .#checks.runTests"
+NIX_TEST_COMMAND="nix build --extra-experimental-features \"nix-command flakes\" flake:./.#checks.runTests"
 echo "   Executing: $NIX_TEST_COMMAND"
 $NIX_TEST_COMMAND
 
