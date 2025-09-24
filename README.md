@@ -1,80 +1,66 @@
-
-# purpose
-
-This is a work in progress to move scripts from here https://docs.google.com/document/d/1mqPOuE6X4mrRWWdszrtVkqmVs1NW1SHP_R7AqrIcxGA/edit?tab=t.0
-into git, nothing special, just trying to document steps for new people in an easy to use manner
-this will currently only install nvm, pnpm for new users.
-
 # ai-ml-zk-ops
-operational scripts for ai ml zk 
 
-Run in git bash on windows
+This repository contains operational scripts and configurations for AI/ML/ZK projects, leveraging Nix for a reproducible and hermetic development environment.
 
-first
-`bash ./scripts/install/node.sh `
+## Nix-powered Development Workflow
 
-If there is a problem, try -x for debugging
+This project utilizes Nix flakes to ensure a consistent and reproducible development environment across all contributors.
 
-`bash -x ./scripts/install/node.sh `
+### Prerequisites
 
-then
+1.  **Install Nix:** If you don't have Nix installed, follow the official Nix installation guide. Ensure you enable Nix flakes.
+    ```bash
+    # Example for multi-user installation (recommended)
+    curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+    ```
+    After installation, ensure your shell is configured to use Nix. You might need to restart your terminal or source the Nix profile.
 
-Close and reopen your terminal to start using nvm 
+2.  **Enable Flakes and Nix-Command:** Add the following to your `~/.config/nix/nix.conf` or `/etc/nix/nix.conf`:
+    ```
+    experimental-features = nix-command flakes
+    ```
 
-or 
+### Getting Started
 
-run the following to use it now:
+1.  **Clone the Repository:**
+    ```bash
+    git clone <repository-url>
+    cd ai-ml-zk-ops
+    ```
 
-```
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-```
+2.  **Enter the Development Shell:**
+    To enter a development shell with all necessary tools and dependencies, run:
+    ```bash
+    nix develop
+    ```
+    This will build and activate a shell environment defined in `flake.nix`.
 
-next run
-`bash ./scripts/install/step2.sh `
+### Running Tests and Committing Changes
 
-if it fails run the commands manually 
-```
-nvm use 23
-pnpm install
-```
+The `run_workflow.sh` script automates the process of committing your changes and running tests within the Nix environment. This ensures that all tests are executed against the committed code in a reproducible manner.
 
+1.  **Prepare your Commit Message:**
+    Write your commit message in `context/commit_message.txt`.
 
-```
-Usage: ./autoscale.sh <keyword> <desired_capacity>
-Example: ./autoscale.sh my-asg 0
-```
+2.  **Execute the Workflow:**
+    ```bash
+    ./run_workflow.sh
+    ```
+    This script will:
+    *   Read the commit message from `context/commit_message.txt`.
+    *   Commit all current changes to Git.
+    *   Execute the Nix flake's test check, which in turn runs `test.sh` (which calls `build.sh` and logs its output).
 
-```mdupont@mdupont-G470:~/2025/01/13/ai-ml-zk-ops/scripts$ bash ./autoscale.sh  fsldkjfsd 0```
+    You can find the test logs in the Nix store output (e.g., `result/test_output.log`).
 
-```
-No Auto Scaling Group found with keyword: fsldkjfsd
-WARNING: terminal is not fully functional
-Press RETURN to continue 
+## Project Structure
 
-{
-    "AutoScalingGroups": [
-        {
-		
-		    "AutoScalingGroupName": 
-			
-```
-		
+*   `flake.nix`: Defines the Nix flake for the project, including development shell, packages, and checks.
+*   `scripts/`: Contains various automation scripts.
+*   `context/commit_message.txt`: Used by `run_workflow.sh` to get the commit message.
+*   `test.sh`: The main test script executed by the Nix flake check.
+*   `build.sh`: Build script.
 
-`bash ./autoscale.sh  "docker-agent-ami-t4g.small" 0`
+## Contributing
 
-```
-Found Auto Scaling Group: docker-agent-ami-t4g.small
-Successfully set desired capacity to 0 for docker-agent-ami-t4g.small
-```
-
-
-`bash ./autoscale.sh  "docker-agent-ami-t4g.small" 1`
-
-```
-Found Auto Scaling Group: docker-agent-ami-t4g.small
-Successfully set desired capacity to 1 for docker-agent-ami-t4g.small
-```
-
-
+Please refer to the `docs/` directory for detailed CRQs (Change Request documents), SOPs (Standard Operating Procedures), and tutorials.
