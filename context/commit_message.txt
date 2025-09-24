@@ -1,5 +1,7 @@
-fix: Ensure output directory exists for checks.runTests
+feat: Add --dry-run option to run_workflow.sh
 
-Added `mkdir -p $out` to the `buildCommand` for `checks.runTests` in `flake.nix`.
-This resolves the "No such file or directory" error encountered when `touch`ing `test_result.txt`,
-ensuring the output directory is created before attempting to write to it.
+Introduces a new `--dry-run` argument to `run_workflow.sh`. When this option is provided, the script will:
+- Print the git status before attempting to commit.
+- Log the commands that would be executed for committing changes and running Nix flake tests, without actually performing these actions.
+
+This enhancement allows users to preview the workflow's actions and verify the state of the repository before making any permanent changes.

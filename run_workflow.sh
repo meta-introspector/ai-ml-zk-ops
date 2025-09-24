@@ -10,14 +10,17 @@
 #              within a reproducible Nix environment.
 #
 # Usage:
-#   ./run_workflow.sh
+#   ./run_workflow.sh [--dry-run]
 #
 # Arguments:
-#   None. The commit message is read from `context/commit_message.txt`.
+#   --dry-run: Optional. If provided, the script will only print the commands
+#              that would be executed, without actually running them.
+#   None (default): The commit message is read from `context/commit_message.txt`.
 #
 # Output:
-#   - Git commit of current changes.
-#   - Output from the Nix flake's test check, including logs from `test.sh`.
+#   - Git commit of current changes (unless --dry-run is used).
+#   - Output from the Nix flake's test check, including logs from `test.sh`
+#     (unless --dry-run is used).
 #
 # Rules Adhered To:
 #   - All complex commands are wrapped.
@@ -36,6 +39,24 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
+# Initialize dry_run flag
+DRY_RUN=false
+
+# Parse arguments
+for arg in "$@"; do
+  case $arg in
+    --dry-run)
+      DRY_RUN=true
+      shift # Remove --dry-run from processing
+      ;;
+    *)
+      # Unknown option
+      echo "Unknown argument: $arg"
+      exit 1
+      ;;
+  esac
+done
+
 # Determine the directory where this script is located (project root)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 
@@ -44,9 +65,17 @@ COMMIT_SCRIPT="${SCRIPT_DIR}/commit.sh"
 COMMIT_MESSAGE_FILE="${SCRIPT_DIR}/context/commit_message.txt"
 
 echo "--- Starting Full Workflow ---"
+if [ "$DRY_RUN" = true ]; then
+  echo "--- DRY RUN ENABLED ---"
+fi
 
 # Step 1: Commit current changes
 echo "1. Committing current changes."
+
+if [ "$DRY_RUN" = true ]; then
+  echo "  (Dry Run) Current Git Status:"
+  git status
+fi
 
 # Read commit message from file
 if [ ! -f "$COMMIT_MESSAGE_FILE" ]; then
@@ -61,7 +90,12 @@ if [ -z "$COMMIT_MESSAGE" ]; then
   exit 1
 fi
 
-"$COMMIT_SCRIPT" "$COMMIT_MESSAGE"
+if [ "$DRY_RUN" = true ]; then
+  echo "  (Dry Run) Would execute: "$COMMIT_SCRIPT" "$COMMIT_MESSAGE""
+else
+  echo "  Executing: "$COMMIT_SCRIPT" "$COMMIT_MESSAGE""
+  "$COMMIT_SCRIPT" "$COMMIT_MESSAGE"
+fi
 
 # Step 2: Run the Nix flake's test check
 echo "2. Running Nix flake tests (via checks.runTests)..."
@@ -70,9 +104,17 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 # Get the current system
 CURRENT_SYSTEM=$(nix eval --raw --impure --expr 'builtins.currentSystem')
 
-echo "   Executing: nix build .#checks.${CURRENT_SYSTEM}.runTests"
-nix build .#checks.${CURRENT_SYSTEM}.runTests
+if [ "$DRY_RUN" = true ]; then
+  echo "  (Dry Run) Would execute: nix build .#checks.${CURRENT_SYSTEM}.runTests"
+else
+  echo "  Executing: nix build .#checks.${CURRENT_SYSTEM}.runTests"
+  nix build .#checks.${CURRENT_SYSTEM}.runTests
+fi
 
 echo "--- Full Workflow Completed ---"
-echo "The code has been committed, and tests have been run via Nix."
-echo "You can find the test logs in the Nix store output (e.g., result/test_output.log)."
+if [ "$DRY_RUN" = true ]; then
+  echo "--- DRY RUN: No commands were actually executed. ---"
+else
+  echo "The code has been committed, and tests have been run via Nix."
+  echo "You can find the test logs in the Nix store output (e.g., result/test_output.log)."
+fi
