@@ -36,22 +36,17 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 # Define the path to the build script
 BUILD_SCRIPT="${SCRIPT_DIR}/build.sh"
 
-# Define the log directory and filename
-LOG_DIR="${SCRIPT_DIR}/logs"
-LOG_FILE="${LOG_DIR}/build_$(date +%Y%m%d_%H%M%S).log"
+# Define the path to the build script
+BUILD_SCRIPT="${SCRIPT_DIR}/build.sh"
 
-# Create the log directory if it doesn't exist
-mkdir -p "$LOG_DIR"
+# When run by Nix, output is captured by nix_test_runner.sh
+# When run locally, output goes to console.
+# No need to manage LOG_DIR or LOG_FILE here when run by Nix.
 
 echo "--- Starting Test Workflow ---"
-echo "Executing build.sh and logging output to: $LOG_FILE"
+echo "Executing build.sh..."
 
-# Execute build.sh and redirect all output to the log file
-# The 'tee' command can be used if you also want to see output on console
-# "$BUILD_SCRIPT" &> "$LOG_FILE"
-# For now, let's just redirect to file as requested for logging.
-"$BUILD_SCRIPT" > "$LOG_FILE" 2>&1
+# Execute build.sh and let its output go to stdout
+"$BUILD_SCRIPT"
 
 echo "--- Test Workflow Completed ---"
-echo "All build output has been logged to: $LOG_FILE"
-echo "You can inspect the log file for details."

@@ -1,4 +1,5 @@
-docs: Add SOP for diagnosing Nix flake build failures
+fix: Refactor test.sh to remove local log management
 
-Created `SOP_Diagnosing_Nix_Flake_Build_Failures.md` to guide users, especially beginners,
-through common Nix flake build errors, log interpretation, and debugging techniques.
+Modified `test.sh` to no longer manage local log directories or redirect output to files.
+Instead, it now prints directly to stdout, allowing the calling environment (e.g., `nix_test_runner.sh`)
+to handle log redirection. This resolves the 'Permission denied' error when running tests within Nix derivations.
