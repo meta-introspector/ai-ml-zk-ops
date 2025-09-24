@@ -9,11 +9,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-ReOXbBOdjjfDNEcND6K0ZEpQSq8m0qwofY+QHRTHuh0=",
-        "path": "/nix/store/dc7rrwz0nvkhdapvb3qps68l9vdipy5c-source/flakes/awk-runner-flake",
+        "path": "/nix/store/cznypy7a9by1d6vfz3s5acvv2y3753h9-source/flakes/awk-runner-flake",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/dc7rrwz0nvkhdapvb3qps68l9vdipy5c-source/flakes/awk-runner-flake",
+        "path": "/nix/store/cznypy7a9by1d6vfz3s5acvv2y3753h9-source/flakes/awk-runner-flake",
         "type": "path"
       }
     },
@@ -26,11 +26,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-ApLMxEkTTlozTsQyjLb8D/hJC48iztBaDyZdxvkzQ8Q=",
-        "path": "/nix/store/dc7rrwz0nvkhdapvb3qps68l9vdipy5c-source/flakes/default-package-flake",
+        "path": "/nix/store/cznypy7a9by1d6vfz3s5acvv2y3753h9-source/flakes/default-package-flake",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/dc7rrwz0nvkhdapvb3qps68l9vdipy5c-source/flakes/default-package-flake",
+        "path": "/nix/store/cznypy7a9by1d6vfz3s5acvv2y3753h9-source/flakes/default-package-flake",
         "type": "path"
       }
     },
@@ -43,11 +43,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-ZIFJIRvZpWt4tYrgFVgp5fgP7x9xEmf2qSBVR+nm30Q=",
-        "path": "/nix/store/dc7rrwz0nvkhdapvb3qps68l9vdipy5c-source/flakes/dev-shell-flake",
+        "path": "/nix/store/cznypy7a9by1d6vfz3s5acvv2y3753h9-source/flakes/dev-shell-flake",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/dc7rrwz0nvkhdapvb3qps68l9vdipy5c-source/flakes/dev-shell-flake",
+        "path": "/nix/store/cznypy7a9by1d6vfz3s5acvv2y3753h9-source/flakes/dev-shell-flake",
         "type": "path"
       }
     },
@@ -579,13 +579,17 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-Hi/zLnOxHH89QFCAAckX8WoxP0qfMsjZkjVE2/anewQ=",
-        "path": "/nix/store/dc7rrwz0nvkhdapvb3qps68l9vdipy5c-source/flakes/repo-data-flake",
-        "type": "path"
+        "dir": "flakes/repo-data-flake",
+        "lastModified": 1758753892,
+        "narHash": "sha256-Muwosivt/D1L9cYLpD3k0MreXVKruNGefM5cY8pFJkk=",
+        "ref": "refs/heads/feature/concept-to-nix-8s",
+        "rev": "cb1701ec2d2d1daef686d004e1672d08aa7e421d",
+        "revCount": 68,
+        "type": "git",
+        "url": "file:///data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops?dir=flakes/repo-data-flake"
       },
       "original": {
-        "path": "/nix/store/dc7rrwz0nvkhdapvb3qps68l9vdipy5c-source/flakes/repo-data-flake",
+        "path": "/nix/store/cznypy7a9by1d6vfz3s5acvv2y3753h9-source/flakes/repo-data-flake",
         "type": "path"
       }
     },
@@ -619,11 +623,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-LhuUbajxp+wAiHu8XrbM1WVkUqK3ouWFSBEJ9yXWyr0=",
-        "path": "/nix/store/dc7rrwz0nvkhdapvb3qps68l9vdipy5c-source/flakes/repo-packages-flake",
+        "path": "/nix/store/cznypy7a9by1d6vfz3s5acvv2y3753h9-source/flakes/repo-packages-flake",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/dc7rrwz0nvkhdapvb3qps68l9vdipy5c-source/flakes/repo-packages-flake",
+        "path": "/nix/store/cznypy7a9by1d6vfz3s5acvv2y3753h9-source/flakes/repo-packages-flake",
         "type": "path"
       }
     },
