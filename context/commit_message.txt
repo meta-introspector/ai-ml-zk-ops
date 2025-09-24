@@ -1,4 +1,4 @@
-fix: Extract embedded awk script to separate file in repo-data-flake/flake.nix
+fix: Recreate flakes/repo-data-flake/flake.nix with minimal template
 
-Moved the embedded awk script for JSON conversion from `flakes/repo-data-flake/flake.nix` to a new file `source/automation/convert_2gram_csv_to_json.awk`.
-Updated `flakes/repo-data-flake/flake.nix` to reference this new script, improving readability and resolving potential syntax issues with embedded multi-line scripts.
+Deleted and recreated `flakes/repo-data-flake/flake.nix` with a minimal, known-good flake template.
+This aims to resolve the persistent "syntax error, unexpected end of file" by starting with a clean, valid structure.
