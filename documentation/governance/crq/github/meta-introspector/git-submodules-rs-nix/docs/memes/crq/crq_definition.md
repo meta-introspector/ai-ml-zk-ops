@@ -1,1 +1,0 @@
-CRQ: It's 'Change ReQuest', not 'Change Request Quality'. Clarity is key!

@@ -1,0 +1,2 @@
+./documentation/governance/crq/github/meta-introspector/lattice-introspector/docs/crq/CRQ_INTROSPECTION_COQ_20250903.md
+./coqs.txt
