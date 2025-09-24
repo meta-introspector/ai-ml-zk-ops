@@ -1,4 +1,5 @@
-{ description = "Nix flake for 2-gram repository analysis";
+{ 
+  description = "Nix flake for 2-gram repository analysis";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11"; # Or a more appropriate branch/tag
@@ -38,7 +39,7 @@
 
       # Convert the list of repo data into an attribute set
       # The key for each attribute will be "${owner}-${repo}"
-      repoAttrs = builtins.listToAttrs (map (item: {
+      repoAttrs = builtins.listToAttrs (map (item: { 
         name = "${item.owner}-${item.repo}";
         value = mkRepoAttr item;
       }) repoData);
@@ -63,20 +64,18 @@
         '';
       };
 
-      # New check output to run test.sh
+      # New check output to run test.sh via nix_test_runner.sh
       checks.${builtins.currentSystem}.runTests = pkgs.runCommand "run-tests" {
         # The source for this derivation is the entire flake directory
         src = self;
-        # The test script itself
-        testScript = "${self}/test.sh";
+        # Path to the new test runner script
+        nixTestRunner = "${self}/source/automation/nix_test_runner.sh";
+        # Path to the project's test script
+        projectTestScript = "${self}/test.sh";
       }
         ''
-        # Create a temporary directory for logs within the Nix build environment
-        mkdir -p logs
-        # Run the test script, redirecting its output to a log file
-        # The log file will be placed in the Nix store output
-        "$testScript" > $out/test_output.log 2>&1
-        # The test derivation succeeds if testScript exits with 0
+        # Call the nixTestRunner script with the project's test script and the output log path
+        "$nixTestRunner" "$projectTestScript" "$out/test_output.log"
       '';
     };
 }

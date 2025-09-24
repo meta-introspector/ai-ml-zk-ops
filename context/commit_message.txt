@@ -1,4 +1,4 @@
-fix: Update Nix flake invocation in run_workflow.sh
+feat: Refactor Nix flake checks to use dedicated test runner script
 
-Corrected the Nix flake invocation to use explicit 'flake:./.#checks.runTests' syntax and double quotes for experimental features.
-This addresses issues with flake resolution and experimental feature warnings.
+Introduced `source/automation/nix_test_runner.sh` to encapsulate the logic for running project tests within Nix derivations.
+Updated `flake.nix` to call this new script for the `checks.runTests` output, adhering to the rule of Nix commands only calling scripts.
