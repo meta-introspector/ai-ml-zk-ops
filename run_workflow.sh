@@ -112,6 +112,36 @@ fi
 echo "2. Running Nix flake tests (via checks.runTests)..."
 export NIX_CONFIG="experimental-features = nix-command flakes"
 
+# Check for flake re-evaluation target in context
+FLAKE_RE_EVALUATION_TARGET_FILE="${SCRIPT_DIR}/context/flake_re_evaluation_target.txt"
+if [ -f "$FLAKE_RE_EVALUATION_TARGET_FILE" ]; then
+  FLAKE_TO_RE_EVALUATE=$(cat "$FLAKE_RE_EVALUATION_TARGET_FILE")
+  echo "  Flake re-evaluation target found: $FLAKE_TO_RE_EVALUATE"
+
+  echo "  Removing flake.lock for $FLAKE_TO_RE_EVALUATE..."
+  if [ "$DRY_RUN" = true ]; then
+    echo "  (Dry Run) Would execute: rm -f \"$FLAKE_TO_RE_EVALUATE/flake.lock\""
+  else
+    rm -f "$FLAKE_TO_RE_EVALUATE/flake.lock"
+  fi
+
+  echo "  Running nix flake update for $FLAKE_TO_RE_EVALUATE..."
+  if [ "$DRY_RUN" = true ]; then
+    echo "  (Dry Run) Would execute: nix flake update \"$FLAKE_TO_RE_EVALUATE\""
+  else
+    nix flake update "$FLAKE_TO_RE_EVALUATE"
+  fi
+
+  echo "  Flake re-evaluation complete for $FLAKE_TO_RE_EVALUATE."
+  echo "  Removing re-evaluation target file: $FLAKE_RE_EVALUATION_TARGET_FILE"
+  if [ "$DRY_RUN" = true ]; then
+    echo "  (Dry Run) Would execute: rm -f \"$FLAKE_RE_EVALUATION_TARGET_FILE\""
+  else
+    rm -f "$FLAKE_RE_EVALUATION_TARGET_FILE"
+  fi
+fi
+
+
 # Run a general flake check for the main ai-ml-zk-ops flake
 echo "  Executing: nix flake check /data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops"
 if [ "$DRY_RUN" = true ]; then
