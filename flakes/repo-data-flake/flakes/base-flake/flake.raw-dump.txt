@@ -1,6 +1,6 @@
-# tests/error-system-duplicate-packages/flake.nix
+# flakes/base-flake/flake.nix
 {
-  description = "Reproduces: Undefined variable 'system' and duplicate 'packages' attribute.";
+  description = "Base flake with a simple 'hello' package.";
 
   inputs = {
     nixpkgs.url = "github:meta-introspector/nixpkgs?ref=feature/CRQ-016-nixify";
@@ -18,12 +18,6 @@
         in
         {
           hello = pkgs.hello;
-          repo2gramJson = pkgs.runCommand "empty-2gram-json" {} "echo '[]' > $out";
-        }
-      );
-      lib = {
-        repoData = []; # Placeholder for repository data
-        repoAttrs = {}; # Placeholder for repository attributes
-      };
+        });
     };
 }

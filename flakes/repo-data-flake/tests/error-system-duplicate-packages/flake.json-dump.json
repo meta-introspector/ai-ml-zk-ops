@@ -1,0 +1,1 @@
+error: in flake URL 'tests/error-system-duplicate-packages/flake.nix', 'flake.nix' is not a commit hash
