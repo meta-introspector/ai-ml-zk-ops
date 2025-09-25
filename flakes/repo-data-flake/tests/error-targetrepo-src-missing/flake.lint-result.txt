@@ -1,5 +1,4 @@
 warning: Git tree '/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops' is dirty
 evaluating flake...
-warning: unknown flake output 'src'
 warning: The check omitted these incompatible systems: x86_64-linux
 Use '--all-systems' to check all.

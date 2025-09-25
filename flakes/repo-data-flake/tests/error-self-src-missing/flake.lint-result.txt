@@ -1,0 +1,33 @@
+warning: Git tree '/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops' is dirty
+warning: creating lock file '/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops/flakes/repo-data-flake/tests/error-self-src-missing/flake.lock'
+warning: Git tree '/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops' is dirty
+evaluating flake...
+error:
+       … while checking flake output 'packages'
+
+         at /nix/store/viyawwm8riwhv956v61n2bgirq24b9sc-source/flakes/repo-data-flake/tests/error-self-src-missing/flake.nix:15:7:
+
+           14|     {
+           15|       packages = forAllSystems (system:
+             |       ^
+           16|         let
+
+       … while checking the derivation 'packages.aarch64-linux.hello'
+
+         at /nix/store/viyawwm8riwhv956v61n2bgirq24b9sc-source/flakes/repo-data-flake/tests/error-self-src-missing/flake.nix:22:11:
+
+           21|         {
+           22|           hello = pkgs.runCommand "hello-with-missing-src" {
+             |           ^
+           23|             buildInputs = [ pkgs.bash ];
+
+       (stack trace truncated; use '--show-trace' to show the full trace)
+
+       error: attribute 'src' missing
+
+       at /nix/store/viyawwm8riwhv956v61n2bgirq24b9sc-source/flakes/repo-data-flake/tests/error-self-src-missing/flake.nix:19:24:
+
+           18|           # This line causes the 'self.src' missing error
+           19|           testScript = self.src + "/self-src-dummy-script.sh";
+             |                        ^
+           20|         in

@@ -12,7 +12,15 @@ TWOGRAM_REPORTS := $(patsubst %.nix,%.2gram-report.txt,$(NIX_FLAKES))
 # Transform .sh paths to .shellcheck-result.txt paths
 SHELLCHECK_RESULTS := $(patsubst %.sh,%.shellcheck-result.txt,$(SH_SCRIPTS))
 
+VERBOSE_LOGS := $(patsubst %.nix,%.verbose-log.txt,$(NIX_FLAKES))
+
 .PHONY: all clean help
+
+all: $(TEST_RESULTS) $(SHELLCHECK_RESULTS) $(RAW_DUMPS) $(JSON_DUMPS) $(LINT_RESULTS) $(EVAL_RESULTS) $(TWOGRAM_REPORTS) $(VERBOSE_LOGS)
+
+%.verbose-log.txt: %.nix
+	@bash /data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops/flakes/repo-data-flake/scripts/dump_flake_verbose_log.sh $< $@
+
 
 all: $(TEST_RESULTS) $(SHELLCHECK_RESULTS) $(RAW_DUMPS) $(JSON_DUMPS) $(LINT_RESULTS) $(EVAL_RESULTS) $(TWOGRAM_REPORTS)
 
