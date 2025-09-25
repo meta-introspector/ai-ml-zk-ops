@@ -12,8 +12,10 @@ fi
 
 echo "Evaluating flake for ${FLAKE_NIX_FILE}"
 
+FLAKE_DIR=$(dirname "$FLAKE_NIX_FILE")
+
 # Run the nix command and capture its output and exit code
-NIX_OUTPUT=$(nix eval --raw "${FLAKE_NIX_FILE}" 2>&1)
+NIX_OUTPUT=$(cd "$FLAKE_DIR" && nix eval --raw . 2>&1)
 NIX_EXIT_CODE=$?
 
 # Write the output to the file

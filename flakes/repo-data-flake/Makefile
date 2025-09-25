@@ -12,9 +12,13 @@ TWOGRAM_REPORTS := $(patsubst %.nix,%.2gram-report.txt,$(NIX_FLAKES))
 # Transform .sh paths to .shellcheck-result.txt paths
 SHELLCHECK_RESULTS := $(patsubst %.sh,%.shellcheck-result.txt,$(SH_SCRIPTS))
 
-.PHONY: all clean
+.PHONY: all clean help
 
 all: $(TEST_RESULTS) $(SHELLCHECK_RESULTS) $(RAW_DUMPS) $(JSON_DUMPS) $(LINT_RESULTS) $(EVAL_RESULTS) $(TWOGRAM_REPORTS)
+
+help:
+	@echo "For help with debugging flakes, see docs/tutorials/Debugging_Nix_Flakes.md"
+
 
 %.test-result.json: %.nix
 	@bash /data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops/flakes/repo-data-flake/scripts/build_test_result.sh $< $@
