@@ -1,32 +1,5 @@
-[K[Kwarning: creating lock file '/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops/flakes/repo-data-flake/tests/error-script-not-found/flake.lock'
 warning: Git tree '/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops' is dirty
 evaluating flake...
-error:
-       … while checking flake output 'packages'
-
-         at /nix/store/vcl18lc2h2ajb0a05xsibn69jjwkrqbf-source/flakes/repo-data-flake/tests/error-script-not-found/flake.nix:15:7:
-
-           14|     {
-           15|       packages = forAllSystems (system:
-             |       ^
-           16|         let
-
-       … while checking the derivation 'packages.aarch64-linux.hello'
-
-         at /nix/store/vcl18lc2h2ajb0a05xsibn69jjwkrqbf-source/flakes/repo-data-flake/tests/error-script-not-found/flake.nix:22:11:
-
-           21|         {
-           22|           hello = pkgs.runCommand "hello-script-not-found" {
-             |           ^
-           23|             buildInputs = [ pkgs.bash ];
-
-       (stack trace truncated; use '--show-trace' to show the full trace)
-
-       error: attribute 'src' missing
-
-       at /nix/store/vcl18lc2h2ajb0a05xsibn69jjwkrqbf-source/flakes/repo-data-flake/tests/error-script-not-found/flake.nix:19:24:
-
-           18|           # This path will now exist
-           19|           testScript = self.src + "/dummy-script.sh";
-             |                        ^
-           20|         in
+warning: unknown flake output 'src'
+warning: The check omitted these incompatible systems: x86_64-linux
+Use '--all-systems' to check all.

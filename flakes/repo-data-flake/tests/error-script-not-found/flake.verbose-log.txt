@@ -1,5 +1,5 @@
 warning: Git tree '/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops' is dirty
-evaluating file '/nix/store/d7kf3f6zrny15wwh1iirpva0rzn41rx9-source/flakes/repo-data-flake/tests/error-script-not-found/flake.nix'
+evaluating file '/nix/store/iw6a39mj3bgmyqnrxxxmlwnfvbkxpmjg-source/flakes/repo-data-flake/tests/error-script-not-found/flake.nix'
 evaluating ''...
 [1mgit+file:///data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops?dir=flakes/repo-data-flake/tests/error-script-not-found[0m
 evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/flake.nix'
@@ -8,9 +8,9 @@ evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/lib/fixed-po
 evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/lib/flake-version-info.nix'
 evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/lib/attrsets.nix'
 evaluating 'packages'...
-[32;1m└───[0m[1mpackages[0m
+[32;1m├───[0m[1mpackages[0m
 evaluating 'packages.aarch64-linux'...
-[32;1m    ├───[0m[1maarch64-linux[0m
+[32;1m│   ├───[0m[1maarch64-linux[0m
 evaluating 'packages.aarch64-linux.hello'...
 evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/lib/systems/default.nix'
 evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/lib/systems/flake-systems.nix'
@@ -111,8 +111,10 @@ evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/pkgs/tools/m
 evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/pkgs/development/libraries/acl/default.nix'
 evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/pkgs/development/libraries/attr/default.nix'
 evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/pkgs/tools/text/gnugrep/default.nix'
-[32;1m    │   └───[0m[1mhello[0m: package 'hello-script-not-found'
+[32;1m│   │   └───[0m[1mhello[0m: package 'hello-script-not-found'
 evaluating 'packages.x86_64-linux'...
-[32;1m    └───[0m[1mx86_64-linux[0m
+[32;1m│   └───[0m[1mx86_64-linux[0m
 evaluating 'packages.x86_64-linux.hello'...
-[32;1m        └───[0m[1mhello[0m [35;1momitted[0m (use '--all-systems' to show)
+[32;1m│       └───[0m[1mhello[0m [35;1momitted[0m (use '--all-systems' to show)
+evaluating 'src'...
+[32;1m└───[0m[1msrc[0m: [35;1munknown[0m

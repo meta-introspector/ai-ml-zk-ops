@@ -12,6 +12,7 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
+      src = ./.;
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};

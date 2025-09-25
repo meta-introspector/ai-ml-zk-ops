@@ -1,4 +1,4 @@
-NIX_FLAKES := $(shell find . -name "flake.nix")
+NIX_FLAKES := flake.nix
 SH_SCRIPTS := $(shell find . -name "*.sh")
 
 # Transform flake.nix paths to various result paths

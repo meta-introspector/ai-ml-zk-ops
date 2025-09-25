@@ -22,7 +22,7 @@ cat "${FLAKE_NIX_FILE}" > "${TEMP_FLAKE_FILE}"
 
 # Run generate-2-gram.sh with the temporary directory as input and the temp dir as output
 # Redirect all output (stdout and stderr) to a temporary file
-/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops/flakes/repo-data-flake/scripts/generate-2-gram.sh "${TEMP_DIR}" "${TEMP_DIR}" > "${TEMP_2GRAM_OUTPUT}" 2>&1
+nix run .#repo2gramJson -- "${TEMP_DIR}" "${TEMP_DIR}" > "${TEMP_2GRAM_OUTPUT}" 2>&1
 
 # Capture the exit code of generate-2-gram.sh
 GENERATE_2GRAM_EXIT_CODE=$?

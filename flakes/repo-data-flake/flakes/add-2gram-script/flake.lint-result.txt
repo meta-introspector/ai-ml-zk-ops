@@ -1,33 +1,32 @@
 warning: Git tree '/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops' is dirty
-warning: creating lock file '/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops/flakes/repo-data-flake/flakes/add-2gram-script/flake.lock'
-warning: Git tree '/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops' is dirty
 evaluating flake...
+warning: unknown flake output 'src'
 error:
        … while checking flake output 'packages'
 
-         at /nix/store/d7kf3f6zrny15wwh1iirpva0rzn41rx9-source/flakes/repo-data-flake/flakes/add-2gram-script/flake.nix:18:7:
+         at /nix/store/yvznmcp3ivvq4g4xn3xnp24f7llbz56v-source/flakes/repo-data-flake/flakes/add-2gram-script/flake.nix:19:7:
 
-           17|       # Inherit packages and lib from addRepoDataLib
-           18|       packages = addRepoDataLib.packages // forAllSystems (system:
+           18|       # Inherit packages and lib from addRepoDataLib
+           19|       packages = addRepoDataLib.packages // forAllSystems (system:
              |       ^
-           19|         let
+           20|         let
 
        … while checking the derivation 'packages.aarch64-linux.generate2GramScript'
 
-         at /nix/store/d7kf3f6zrny15wwh1iirpva0rzn41rx9-source/flakes/repo-data-flake/flakes/add-2gram-script/flake.nix:32:11:
+         at /nix/store/yvznmcp3ivvq4g4xn3xnp24f7llbz56v-source/flakes/repo-data-flake/flakes/add-2gram-script/flake.nix:33:11:
 
-           31|           # Expose the script derivation
-           32|           generate2GramScript = generate2GramScriptDerivation;
+           32|           # Expose the script derivation
+           33|           generate2GramScript = generate2GramScriptDerivation;
              |           ^
-           33|         }
+           34|         }
 
        (stack trace truncated; use '--show-trace' to show the full trace)
 
        error: attribute 'src' missing
 
-       at /nix/store/d7kf3f6zrny15wwh1iirpva0rzn41rx9-source/flakes/repo-data-flake/flakes/add-2gram-script/flake.nix:24:19:
+       at /nix/store/yvznmcp3ivvq4g4xn3xnp24f7llbz56v-source/flakes/repo-data-flake/flakes/add-2gram-script/flake.nix:25:19:
 
-           23|             # Pass the script as a source input to this derivation
-           24|             src = repoDataFlakeRoot.src + "/scripts/generate-2-gram.sh"; # Reference the script from repoDataFlakeRoot
+           24|             # Pass the script as a source input to this derivation
+           25|             src = repoDataFlakeRoot.src + "/scripts/generate-2-gram.sh"; # Reference the script from repoDataFlakeRoot
              |                   ^
-           25|           } ''
+           26|           } ''
