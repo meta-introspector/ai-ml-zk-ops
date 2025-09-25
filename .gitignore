@@ -178,3 +178,4 @@ flycheck_*.el
 /network-security.data
 
 logs/
+result
