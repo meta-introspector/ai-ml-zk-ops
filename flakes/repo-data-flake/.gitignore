@@ -1,1 +1,6 @@
 result
+*.raw-dump.txt
+*.test-result.json
+*.shellcheck-result.txt
+flake.lock
+flake.json-dump.json
