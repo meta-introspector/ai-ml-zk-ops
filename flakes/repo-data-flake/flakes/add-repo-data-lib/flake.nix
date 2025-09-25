@@ -4,7 +4,7 @@
 
   inputs = {
     nixpkgs.url = "github:meta-introspector/nixpkgs?ref=feature/CRQ-016-nixify";
-    baseFlake.url = "github:meta-introspector/ai-ml-zk-ops?ref=feature/concept-to-nix-8s&dir=flakes/base-flake"; # Corrected input path
+    baseFlake.url = "github:meta-introspector/ai-ml-zk-ops?ref=feature/concept-to-nix-8s&dir=flakes/repo-data-flake/flakes/base-flake"; # Corrected input path
   };
 
   outputs = { self, nixpkgs, baseFlake }:

@@ -1,0 +1,65 @@
+{
+  "nodes": {
+    "baseFlake": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "dir": "flakes/repo-data-flake/flakes/base-flake",
+        "lastModified": 1758769850,
+        "narHash": "sha256-eTcMGXM/s1WUBjEHMIkU7bLcMeqwucPyW9lEXfQSSmI=",
+        "owner": "meta-introspector",
+        "repo": "ai-ml-zk-ops",
+        "rev": "cd1a98f20377282ac6b4255c33ead48f9adfd643",
+        "type": "github"
+      },
+      "original": {
+        "dir": "flakes/repo-data-flake/flakes/base-flake",
+        "owner": "meta-introspector",
+        "ref": "feature/concept-to-nix-8s",
+        "repo": "ai-ml-zk-ops",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1757898380,
+        "narHash": "sha256-1Z0KAfbySsHu/IoZbBJLrPgs3IqQGup0T8J9S1ffAkE=",
+        "owner": "meta-introspector",
+        "repo": "nixpkgs",
+        "rev": "26833ad1dad83826ef7cc52e0009ca9b7097c79f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "meta-introspector",
+        "ref": "feature/CRQ-016-nixify",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1757898380,
+        "narHash": "sha256-1Z0KAfbySsHu/IoZbBJLrPgs3IqQGup0T8J9S1ffAkE=",
+        "owner": "meta-introspector",
+        "repo": "nixpkgs",
+        "rev": "26833ad1dad83826ef7cc52e0009ca9b7097c79f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "meta-introspector",
+        "ref": "feature/CRQ-016-nixify",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "baseFlake": "baseFlake",
+        "nixpkgs": "nixpkgs_2"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
