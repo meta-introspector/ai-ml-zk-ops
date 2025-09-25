@@ -1,1 +1,7 @@
-/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops/flakes/repo-data-flake/scripts/generate_2gram_report.sh: /data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops/flakes/repo-data-flake/scripts/generate-2-gram.sh: /bin/bash: bad interpreter: No such file or directory
+warning: Git tree '/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops' is dirty
+these 2 derivations will be built:
+  /nix/store/kkjf66am95p5n60g4yv2al82vbqi4q8i-generate-2-gram-script.drv
+  /nix/store/n1yjygdgxrihkhi25bm5zdi2shhlhbq1-repo-2gram-json.drv
+building '/nix/store/kkjf66am95p5n60g4yv2al82vbqi4q8i-generate-2-gram-script.drv'...
+building '/nix/store/n1yjygdgxrihkhi25bm5zdi2shhlhbq1-repo-2gram-json.drv'...
+error: unable to execute '/nix/store/np9qvnviippnvjwdmrjh2bwg4whgkg2i-repo-2gram-json/bin/repo': No such file or directory

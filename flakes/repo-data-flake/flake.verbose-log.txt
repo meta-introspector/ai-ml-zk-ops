@@ -1,5 +1,5 @@
 warning: Git tree '/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops' is dirty
-evaluating file '/nix/store/d7kf3f6zrny15wwh1iirpva0rzn41rx9-source/flakes/repo-data-flake/flake.nix'
+evaluating file '/nix/store/w2myf4097agifw37flvdyzlyj6fjmkr6-source/flakes/repo-data-flake/flake.nix'
 evaluating ''...
 [1mgit+file:///data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops?dir=flakes/repo-data-flake[0m
 evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/flake.nix'
@@ -7,6 +7,8 @@ evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/lib/default.
 evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/lib/fixed-points.nix'
 evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/lib/flake-version-info.nix'
 evaluating file '/nix/store/j3sna6r5nrrqj5b3pslyc520cycfa43m-source/lib/attrsets.nix'
+evaluating 'flakes'...
+[32;1m├───[0m[1mflakes[0m: [35;1munknown[0m
 evaluating 'lib'...
 [32;1m├───[0m[1mlib[0m: [35;1munknown[0m
 evaluating 'packages'...

@@ -38,5 +38,17 @@
         repoData = []; # Placeholder for repository data
         repoAttrs = {}; # Placeholder for repository attributes
       };
+      flakes = {
+        add-2gram-script = import ./flakes/add-2gram-script;
+        add-repo-data-lib = import ./flakes/add-repo-data-lib;
+        base-flake = import ./flakes/base-flake;
+        error-circular-import = import ./tests/error-circular-import;
+        error-each-default-system-missing = import ./tests/error-each-default-system-missing;
+        error-hardcoded-system = import ./tests/error-hardcoded-system;
+        error-script-not-found = import ./tests/error-script-not-found;
+        error-self-src-missing = import ./tests/error-self-src-missing;
+        error-system-duplicate-packages = import ./tests/error-system-duplicate-packages;
+        error-targetrepo-src-missing = import ./tests/error-targetrepo-src-missing;
+      };
     };
 }
