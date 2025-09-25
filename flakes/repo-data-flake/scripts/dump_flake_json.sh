@@ -15,7 +15,7 @@ echo "Dumping JSON flake output for ${FLAKE_NIX_FILE}"
 FLAKE_DIR=$(dirname "$FLAKE_NIX_FILE")
 
 # Run the nix command and capture its output and exit code
-NIX_OUTPUT=$(cd "$FLAKE_DIR" && nix flake show --json --all-systems . 2>&1)
+NIX_OUTPUT=$(cd "$FLAKE_DIR" && nix flake show --json --all-systems --no-write-lock-file . 2>&1)
 NIX_EXIT_CODE=$?
 
 # Write the output to the file
