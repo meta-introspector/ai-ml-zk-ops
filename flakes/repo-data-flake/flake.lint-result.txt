@@ -1,0 +1,30 @@
+[K[Kevaluating flake...
+error:
+       … while checking flake output 'packages'
+
+         at /nix/store/5dssghcf8zip44n6i4nvkcvfrm9n8g51-source/flakes/repo-data-flake/flake.nix:15:7:
+
+           14|     {
+           15|       packages = forAllSystems (system:
+             |       ^
+           16|         let
+
+       … while checking the derivation 'packages.aarch64-linux.repo2gramJson'
+
+         at /nix/store/5dssghcf8zip44n6i4nvkcvfrm9n8g51-source/flakes/repo-data-flake/flake.nix:29:11:
+
+           28|           hello = pkgs.hello;
+           29|           repo2gramJson = pkgs.runCommand "repo-2gram-json" {
+             |           ^
+           30|             buildInputs = [ pkgs.jq ]; # Ensure jq is available
+
+       (stack trace truncated; use '--show-trace' to show the full trace)
+
+       error: attribute 'src' missing
+
+       at /nix/store/5dssghcf8zip44n6i4nvkcvfrm9n8g51-source/flakes/repo-data-flake/flake.nix:21:19:
+
+           20|             # Pass the script as a source input to this derivation
+           21|             src = self.src + "/scripts/generate-2-gram.sh";
+             |                   ^
+           22|           } ''
