@@ -2,7 +2,7 @@
   description = "Generates packages for each repository found in repo-data-flake.";
 
   inputs = {
-    nixpkgs-pinned.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/nixpkgs-pinned&ref=feature/concept-to-nix-8s";
+    nixpkgs-pinned.url = "github:meta-introspector/nixpkgs?ref=feature/CRQ-016-nixify";
     flake-utils-wrapper.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/flake-utils-wrapper&ref=feature/concept-to-nix-8s";
     repo-data-flake.url = "github:meta-introspector/ai-ml-zk-ops?dir=flakes/repo-data-flake&ref=feature/concept-to-nix-8s";
   };
@@ -11,8 +11,9 @@
     flake-utils-wrapper.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs-pinned.legacyPackages.${system};
-        traceJson = prefix: value: builtins.trace (prefix + ": " + builtins.toJSON value) {};
-        repoData = traceJson "repoData" repo-data-flake.lib.${system}.repoData;
+        # traceJson = prefix: value: builtins.trace (prefix + ": " + builtins.toJSON value) {};
+        # repoData = traceJson "repoData" repo-data-flake.lib.${system}.repoData;
+        repoData = repo-data-flake.repoData; # Modified access
       in
       {
         # Temporarily commented out to debug repoData
