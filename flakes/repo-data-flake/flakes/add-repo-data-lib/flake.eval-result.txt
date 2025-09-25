@@ -1,0 +1,2 @@
+warning: Git tree '/data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops' is dirty
+error: flake 'git+file:///data/data/com.termux.nix/files/home/pick-up-nix2/source/github/meta-introspector/ai-ml-zk-ops?dir=flakes/repo-data-flake/flakes/add-repo-data-lib' does not provide attribute 'packages.aarch64-linux.default' or 'defaultPackage.aarch64-linux'

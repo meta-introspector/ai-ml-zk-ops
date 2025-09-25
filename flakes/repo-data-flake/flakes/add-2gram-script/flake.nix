@@ -14,6 +14,7 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
+      src = ./.;
       # Inherit packages and lib from addRepoDataLib
       packages = addRepoDataLib.packages // forAllSystems (system:
         let
